@@ -1,10 +1,10 @@
 .header {
   display: flex;
   justify-content: center;
-  background-color: blueviolet;
+
 }
 .logo-container {
-  background-color: aqua;
+ 
   display: flex;
   justify-content: center;
 }
@@ -14,8 +14,6 @@
 }
 
 #parent {
- background-color: green;
- justify-content: center;
- width: 15%;
-  
+ display: grid;
+ place-items: center;
 }

@@ -4,8 +4,8 @@ import React from "react";
 function Header2() {
   return (
     <>
-      <header>
-        <h2>Secondary Criteria</h2>
+      <header className="header">
+        <h2 className="header-text">Secondary Criteria</h2>
         </header>
     </>
   )
