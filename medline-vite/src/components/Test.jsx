@@ -8,7 +8,7 @@ function Test() {
 
 <>
   
-  <header className="header">
+  <header className="header-1">
     <label>
       Criteria
       <input
