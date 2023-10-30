@@ -5,6 +5,11 @@ import Input from './components/Input'
 import Header2 from './components/Header2'
 import Header3 from './components/Header3'
 import medline from './images/medline.jpg'
+import Header1 from './components/Header1'
+import Header4 from './components/Header4'
+import QuantityInput from './components/Increment'
+
+
 
 
 function App() {
@@ -15,12 +20,15 @@ function App() {
         <img id="medline-logo" src={medline}/>
       </div>
       <div id='parent'>
-        <Header2 />
+        <Header1 />
         <Input /> 
         <Header2 />
-        <Input /> 
+        <Input />
         <Header3 />
-        <Input /> 
+        <Input /><QuantityInput />
+        <Header4 />
+        <Input />
+        <Input />
       </div>
     </div>
   );

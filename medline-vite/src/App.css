@@ -1,7 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
 .header {
   display: flex;
   justify-content: center;
 
+}
+
+.header-text { 
+  font-family: 'Josefin Sans', cursive;
+  color: blue;
 }
 .logo-container {
  
@@ -17,3 +24,4 @@
  display: grid;
  place-items: center;
 }
+
