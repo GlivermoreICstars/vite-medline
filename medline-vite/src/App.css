@@ -25,3 +25,32 @@
  place-items: center;
 }
 
+.compile-btn {
+  background-color: red;
+  border: none;
+  cursor: pointer;
+  border-radius: 2em;
+  margin-right: 150px;
+  margin-top: 30px;
+  height: 40px;
+  color: white;
+  width: 100px;
+  font-size: 16px;
+}
+.compile-btn:hover {
+  box-shadow: 1px 1px 10px rgb(86, 86, 86);
+}
+.cancel-btn {
+  background-color: rgb(146, 144, 144);
+  border: none;
+  cursor: pointer;
+  border-radius: 2em;
+  height: 40px;
+  margin-top: 30px;
+  color: white;
+  width: 100px;
+  font-size: 16px;
+}
+.cancel-btn:hover {
+  box-shadow: 1px 1px 10px rgb(86, 86, 86);
+}

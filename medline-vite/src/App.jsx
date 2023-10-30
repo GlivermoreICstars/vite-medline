@@ -29,6 +29,10 @@ function App() {
         <Header4 />
         <Input />
         <Input />
+        <div>
+        <button className='compile-btn'>COMPILE</button>
+        <button className='cancel-btn'>CANCEL</button>
+        </div>
       </div>
     </div>
   );
