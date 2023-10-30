@@ -77,4 +77,294 @@ input {
   
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.label-1 {
+  font-size: 16px;
+}
+
+input:focus, textarea {
+  outline: none;
+}
+.secondary-header {
+  padding-left: 25px;
+  padding-right: 175px;
+  color: rgb(179, 183, 187);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+}
+
+.first-row-heading {
+  background-color: rgb(216, 220, 145);
+  border: 1px solid black;
+  font-size: 10px;
+}
+
+.first-row {
+  display: flex;
+  justify-content: space-between;
+
+
+}
+
+.score-box {
+  margin-top: 15px;
+  height: 100px;
+  width: 100px;
+  font-size: 50px;
+  color: lightblue;
+}
+
+.score-box-2 {
+  margin-top: 15px;
+  height: 100px;
+  width: 100px;
+  font-size: 50px;
+  color: rgb(86, 48, 153);
+}
+
+.score-box-3 {
+  margin-top: 15px;
+  height: 100px;
+  width: 100px;
+  font-size: 50px;
+  color: pink;
+}
+
+.score-box-4 {
+  margin-top: 1px;
+  height: 100px;
+  width: 100px;
+  font-size: 50px;
+  color: rgb(171, 135, 171);
+}
+
+.justifications {
+  border: none;
+  background: transparent;
+  padding-right: 200px;
+  padding-top: 60px;
+  padding-bottom: 50px;
+}
+
+.first-row-text {
+  padding-top: 40px;
+}
+
+.table-heading-1 {
+  background-color: pink;
+}
+
+.table-heading-2 {
+  background-color: rgb(171, 135, 171);
+}
+
+.table-heading-3 {
+  background-color: rgb(86, 48, 153);
+}
+
+.table-heading-4 {
+  background-color: rgb(139, 193, 244);
+}
+
+.table-heading-5 {
+  background-color: rgb(105, 240, 249);
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.edit-button {
+  padding: 15px;
+  margin-right: 50px;
+  background: greenyellow;
+  border-radius: 3em;
+  font-size: 16px;
+  border: none;
+}
+.edit-button:hover {
+box-shadow: 1px 1px 7px rgb(146, 146, 146);
+}
+
+.save-results-button {
+  padding: 15px;
+  margin-right: 150px;
+  background: red;
+  border-radius: 3em;
+  font-size: 16px;
+  border: none;
+}
+.save-results-button:hover {
+  box-shadow: 1px 1px 7px rgb(146, 146, 146);
+}
+
+.score-question {
+  padding-left: 20px;
+}
+
+.dropdown {
+  min-width: 15em; 
+  position: relative;
+  margin: 2em;
+}
+
+.dropdown * {
+  box-sizing: border-box;
+
+}
+
+.select {
+  background: #2c66ed;
+  color: #fff;
+  display: flex;
+  width: 100px;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px #2c66ed solid;
+  border-radius: .5em;
+  padding-right: 1em;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.selected-clicked {
+  border: 2px #26489a solid;
+  box-shadow: 0 0 0 0.8em #26489a;
+}
+
+.select:hover {
+  color: #ffffff;
+}
+
+.caret {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid #fff;
+  transition: 0.3s;
+}
+
+.caret-rotate {
+  transform: rotate(180deg);
+
+}
+
+.menu {
+  list-style: none;
+  padding: 0.2em 0.5em;
+  background: #192948;
+  border: 1px #2c66ed solid;
+  box-shadow: 0 0 0.5em  1em rgba(0, 0, 0, 0.2);
+  border-radius: 0.5em;
+  color: white;
+  position: absolute;
+  top: 3em;
+  left: 50%;
+  width: 100px;
+  transform: translateX(-50%);
+  opacity: 0;
+  display: none;
+  transition: 0.2s;
+  z-index: 1;
+}
+
+.menu li {
+  padding: 0.7em 0.5em;
+  margin: 0.3em 0;
+  border-radius: 0.5em;
+  cursor: pointer;
+}
+.menu li:hover {
+  background: #2c66ed;
+}
+
+.active {
+  background: #2c66ed;
+}
+
+.menu-open {
+display: block;
+opacity: 1;
+padding-right: 25px;
+}
+
+.criteria-header-main {
+  color: white;
+  display: flex;
+  justify-content: center;
+  background-image: url(../Images/medline.jpg);
+  background-position: 50vh;
+  height: 400px;
+  background-repeat: no-repeat;
+}
+.scorecard-header-text {
+  position: absolute;
+  padding-top: 200px;
+}
+
+
+/*Criteria styling*/
+
+.criteria-text {
+display: flex;
+justify-content: center;
+margin-right: 150px;
+color:rgb(128, 249, 115);
+padding: 10px;
+
+}
+
+.criteria {
+  display: flex;
+  justify-content: center;
+  margin-right: 150px;
+  height: 20px;
+}
+.criteria-input {
+  color: red;
+}
+#criteria {
+  width: 300px;
+  height: 25px;
+  font-size: 16px;
+}
+
+.button-div {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 150px;
+  padding-right: 150px;
+  padding-bottom: 100px;
+  
+}
+
+.compile-button {
+background-color: red;
+color: white;
+border-radius: 3em;
+font-size: 20px;
+padding: 10px;
+font-weight: 500;
+width: 150px;
+cursor: pointer;
+}
+
+.cancel-button {
+background-color: rgb(183, 163, 163);
+border-radius: 3em;
+font-size: 20px;
+padding: 10px;
+font-weight: 500;
+width: 120px;
+cursor: pointer;
+}
+
 
