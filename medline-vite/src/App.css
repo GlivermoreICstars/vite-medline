@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  justify-content: center;
+  background-color: blueviolet;
+}
+.logo-container {
+  background-color: aqua;
+  display: flex;
+  justify-content: center;
+}
+#medline-logo {
+  height: 400px;
+  width: 400px;
+}
+
+#parent {
+ background-color: green;
+ justify-content: center;
+ width: 15%;
+  
+}
