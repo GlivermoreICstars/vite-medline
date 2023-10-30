@@ -8,7 +8,7 @@
 
 .header-text { 
   font-family: 'Josefin Sans', cursive;
-  color: blue;
+  color: #174c9b;
 }
 .logo-container {
  
@@ -54,3 +54,27 @@
 .cancel-btn:hover {
   box-shadow: 1px 1px 10px rgb(86, 86, 86);
 }
+
+.active {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  background-color:  #174c9b;
+ 
+}
+a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+}
+
+a:hover {
+  color: rgb(219, 111, 111);
+}
+
+input {
+  gap: 10px;
+  
+}
+
+

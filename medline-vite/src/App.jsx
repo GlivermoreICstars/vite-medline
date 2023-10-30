@@ -8,12 +8,14 @@ import medline from './images/medline.jpg'
 import Header1 from './components/Header1'
 import Header4 from './components/Header4'
 import QuantityInput from './components/Increment'
-
+import MainHeader from './components/MainHeader'
 
 
 
 function App() {
   return (
+    <>
+    <MainHeader />
     <div id="container"> 
       <Header />
       <div className='logo-container'>
@@ -35,6 +37,7 @@ function App() {
         </div>
       </div>
     </div>
+    </>
   );
 };
 export default App
