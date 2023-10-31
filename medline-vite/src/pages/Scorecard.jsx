@@ -1,9 +1,19 @@
 import React from "react"
-
+import { useState } from "react"
 
 
 function Scorecard() {
-  
+
+const [state, setState] = useState(false)
+const [state1, setState1] = useState(false)
+
+const toggle2 = () => {
+  setState1(!state1)
+}
+const toggle = () => {
+  setState(!state)
+}
+
   return (
 
 <>
@@ -42,12 +52,7 @@ function Scorecard() {
     <label>
       Date
       <input
-        placeholder="Enter Date"
-        onclick="
-    
-    
-    "
-      />
+        placeholder="Enter Date"/>
     </label>
   </header>
   <div>
@@ -55,6 +60,7 @@ function Scorecard() {
       <h3>Competency</h3>
       <h3>Level of Process Maturity</h3>
       <h3>Score</h3>
+      <h3>Choose Score</h3>
       <h3>Justification</h3>
     </header>
   </div>
@@ -108,25 +114,19 @@ function Scorecard() {
     <div>
       <p className="score-box">5</p>
     </div>
-    <div className="dropdown">
-      <div className="select">
-        <span className="selected">Score</span>
-        <div className="caret" />
-      </div>
-      <ul className="menu">
-        <li value={1}>1</li>
-        <li value={2}>2</li>
-        <li value={3}>3</li>
-        <li value={4} className="active">
-          4
-        </li>
-        <li value={5}>5</li>
-      </ul>
+    <div className="create">
+      <select>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
     </div>
     <div>
       <textarea
         className="justifications"
-        placeholder="Justifications goes here"
+        placeholder="Justifications go here"
         defaultValue={""}
       />
     </div>
@@ -181,25 +181,19 @@ function Scorecard() {
     <div>
       <p className="score-box-2">3</p>
     </div>
-    <div className="dropdown">
-      <div className="select">
-        <span className="selected">Score</span>
-        <div className="caret" />
-      </div>
-      <ul className="menu">
-        <li value={1}>1</li>
-        <li value={2}>2</li>
-        <li value={3}>3</li>
-        <li value={4} className="active">
-          4
-        </li>
-        <li value={5}>5</li>
-      </ul>
+    <div className="create">
+      <select>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
     </div>
     <div>
       <textarea
         className="justifications"
-        placeholder="Justifications goes here"
+        placeholder="Justifications go here"
         defaultValue={""}
       />
     </div>
@@ -252,25 +246,19 @@ function Scorecard() {
     <div>
       <p className="score-box-3">1</p>
     </div>
-    <div className="dropdown">
-      <div className="select">
-        <span className="selected">Score</span>
-        <div className="caret" />
-      </div>
-      <ul className="menu">
-        <li value={1}>1</li>
-        <li value={2}>2</li>
-        <li value={3}>3</li>
-        <li value={4} className="active">
-          4
-        </li>
-        <li value={5}>5</li>
-      </ul>
+    <div className="create">
+      <select>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
     </div>
     <div>
       <textarea
         className="justifications"
-        placeholder="Justifications goes here"
+        placeholder="Justifications go here"
         defaultValue={""}
       />
     </div>
@@ -325,35 +313,29 @@ function Scorecard() {
     <div>
       <p className="score-box-4">2</p>
     </div>
-    <div className="dropdown">
-      <div className="select">
-        <span className="selected">Score</span>
-        <div className="caret" />
-      </div>
-      <ul className="menu menu2">
-        <li value={1}>1</li>
-        <li value={2}>2</li>
-        <li value={3}>3</li>
-        <li value={4} className="active">
-          4
-        </li>
-        <li value={5}>5</li>
-      </ul>
+    <div className="create">
+      <select>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
     </div>
     <div>
       <textarea
         className="justifications"
-        placeholder="Justifications goes here"
+        placeholder="Justifications go here"
         defaultValue={""}
       />
     </div>
   </div>
   <div className="buttons">
-    <button className="edit-button" id="edit-btn">
-      EDIT
+    <button onClick={ toggle2 } className="edit-button" id="edit-btn">
+      { state1 ? 'You may edit document' : 'Edit'}
     </button>
-    <button className="save-results-button" id="save-btn">
-      SAVE RESULTS
+    <button onClick={ toggle } className="save-results-button" id="save-btn">
+      { state ? 'Results Saved' : 'Save'}
     </button>
   </div>
 </>
