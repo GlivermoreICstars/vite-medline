@@ -1,13 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function MainHeader() {
   return (
   <div className="navbar">
     <ul className="active">
-      <a id="list-item" href="#"><li>Home</li></a>
-      <a id="list-item" href="#"><li>Scorecard Template Library</li></a>
-      <a id="list-item" href="#"><li>Scorecard Criteria Page</li></a>
-      <a id="list-item" href="#"><li>Scorecard Library</li></a>
+      <Link to='/'>Home</Link>
+      <Link to='/ScorecardLibrary'>Scorecard Template Library</Link>
+      <Link to='/criteria'>Scorecard Criteria Page</Link>
+      <Link to='/scorecard'>Scorecard</Link>
     </ul>
   </div>
 )};

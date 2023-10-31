@@ -1,11 +1,11 @@
 import React from 'react'
 import './App.css'
-import Criteria from './pages/CriteriaPage';
 import Scorecard from './pages/Scorecard'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NoPage from './pages/NoPage';
 import Home from './pages/Home';
 import CriteriaPage from './pages/CriteriaPage';
+import MainHeader from './components/MainHeader';
 
 
 
@@ -13,6 +13,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
+      <MainHeader />
         <Routes>
           <Route index element={<Home />}/>
           <Route path="/home" element={<Home />}/>

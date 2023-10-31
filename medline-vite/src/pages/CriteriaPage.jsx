@@ -12,7 +12,6 @@ import MainHeader from '../components/MainHeader'
 function CriteriaPage() {
 return (
   <>
-  <MainHeader />
       <div id="container"> 
         <Header />
         <div className='logo-container'>

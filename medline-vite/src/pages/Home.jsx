@@ -4,7 +4,7 @@ import MainHeader from "../components/MainHeader";
 function Home() {
   return (
     <>
-      <MainHeader />
+      <h1>Home Page</h1>
     </>
   )
 }
