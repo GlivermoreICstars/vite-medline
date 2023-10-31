@@ -9,6 +9,7 @@ import MainHeader from './components/MainHeader';
 
 
 
+
 function App() {
   return (
     <>
@@ -16,7 +17,7 @@ function App() {
       <MainHeader />
         <Routes>
           <Route index element={<Home />}/>
-          <Route path="/home" element={<Home />}/>
+          <Route path="/Home" element={<Home />}/>
           <Route path="/Criteria" element={<CriteriaPage />}/>
           <Route path="/Scorecard" element={<Scorecard />}/>
           <Route path="*" element={<NoPage />}/>
