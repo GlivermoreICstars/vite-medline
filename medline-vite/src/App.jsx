@@ -13,7 +13,7 @@ import MainHeader from './components/MainHeader';
 function App() {
 
   useEffect(() => {
-    fetch('http://localhost:3000/users')
+    fetch('http://localhost:3000/scorecard')
       .then(res => res.json())
       .then(data => console.log(data))
       .catch(err => console.log(err));

@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors')
-const PORT = 3000;
+const PORT = 4000;
 const app = express();
 const mysql = require('mysql2');
 
@@ -30,8 +30,8 @@ app.get('/', (req, res) => {
 })
 
 // Define a sample route that queries the database
-app.get('/users', (req, res) => {
-  const sql = "SELECT * FROM users"
+app.get('/scorecard', (req, res) => {
+  const sql = "SELECT * FROM scorecard"
   db.query(sql, (err, data) => {
     if(err) return res.json(err);
     return res.json(data);
