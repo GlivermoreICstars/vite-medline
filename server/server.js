@@ -4,7 +4,7 @@ const PORT = 3000;
 const app = express();
 const mysql = require('mysql2');
 
-
+app.use(cors());
 
 
 
@@ -25,8 +25,12 @@ db.connect((err) => {
   console.log('Connected to the database');
 });
 
-// Define a sample route that queries the database
 app.get('/', (req, res) => {
+  return res.json('Connected to the database finally')
+})
+
+// Define a sample route that queries the database
+app.get('/users', (req, res) => {
   const sql = "SELECT * FROM users"
   db.query(sql, (err, data) => {
     if(err) return res.json(err);

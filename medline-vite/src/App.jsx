@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './App.css'
 import Scorecard from './pages/Scorecard'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -11,6 +11,15 @@ import MainHeader from './components/MainHeader';
 
 
 function App() {
+
+  useEffect(() => {
+    fetch('http://localhost:3000/users')
+      .then(res => res.json())
+      .then(data => console.log(data))
+      .catch(err => console.log(err));
+  }, [])
+
+
   return (
     <>
       <BrowserRouter>
