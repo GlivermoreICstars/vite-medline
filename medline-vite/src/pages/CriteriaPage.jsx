@@ -13,12 +13,11 @@ import { useState } from 'react'
 
 function CriteriaPage() {
 
-const [info, setInfo] = useState('')
+const [main, setMain] = useState('')
+const [second, setSecond] = useState('')
+const [range, setRange] = useState(0)
+const [requirement, setRequirement] = useState('')
 
-
-function updateMain() {
-  
-}
 
 return (
   <>
@@ -29,15 +28,21 @@ return (
         </div>
         <div id='parent'>
           <Header1 />
-          <input type='text' placeholder='Enter Main Criteria' onChange={(e) => {
-            setInfo(e.target.value)
-          }}/> 
+          <input  type='text' placeholder='Enter Main Criteria' value={main} onChange={(e) => {
+            setMain(e.target.value)
+          }}/>
           <Header2 />
-          <Input />
+          <input  type='text' placeholder='Enter Main Criteria' value={second} onChange={(e) => {
+            setSecond(e.target.value)
+          }}/>
           <Header3 />
-          <Input /><QuantityInput />
+          <input  type='text' placeholder='Enter Main Criteria' value={range} onChange={(e) => {
+            setRange(e.target.value)
+          }}/>
           <Header4 />
-          <Input />
+          <input  type='text' placeholder='Enter Main Criteria' value={requirement} onChange={(e) => {
+            setRequirement(e.target.value)
+          }}/>
           <Input />
           <div>
           <button  className='compile-btn'>COMPILE</button>
