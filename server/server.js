@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
   return res.json('Connected to the database finally')
 })
 
-// Define a sample route that queries the database
+// create request for scorecard
 app.get('/scorecard', (req, res) => {
   const sql = "SELECT * FROM scorecard"
   db.query(sql, (err, data) => {
@@ -37,8 +37,56 @@ app.get('/scorecard', (req, res) => {
     return res.json(data);
   })
 })
+//Post for scorecard
+app.post("/scorecard", (req, res) => {
+  const sql = "INSERT INTO scorecard (`criteria`, `FLname`, `employID`, `date`, `requirements`, `score`, `justifications`) VALUES (?);"
+  const values = ['operations', 'Jaleel Payne', '4', '2023/2/11', 'general requirements', '10', 'went well']
+
+  db.query(sql, [values], (err, data)=> {
+    if(err) return res.json(err)
+    return res.json(data)
+  })
+ 
+})
+
+//create route for criteria
+app.get('/criteria', (req, res) => {
+  const sql = "SELECT * FROM criteria"
+  db.query(sql, (err, data)=> {
+    if(err) return res.json(err)
+    return res.json(data)
+  })
+})
+
+//post route for criteria
+app.post("/criteria", (req, res) => {
+  const sql = "INSERT INTO criteria (`main_criteria`, `secondary_criteria`, `scoring_range`, `requirements`) VALUES (?)"
+  const values = ["project management 2", "operations", "5", "requirements general"]
+
+  db.query(sql, [values], (err, data)=> {
+    if(err) return res.json(err)
+    return res.json("Template has been created")
+  })
+ 
+})
 
 
+//Update route for criteria
+app.put('/criteria', (req, res) => {
+  const id = req.body.id;
+  const main = req.body.main_criteria;
+
+  db.query("UPDATE SET criteria main_criteria = ? WHERE id = ?", [main, id], (err, result) => {
+    if(err) {
+      console.log(err)
+    } else {
+      res.send(result);
+    }
+  })
+})
+
+//delete route for criteria
+// app.delete()
 
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);

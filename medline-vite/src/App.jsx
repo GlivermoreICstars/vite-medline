@@ -15,7 +15,7 @@ function App() {
   useEffect(() => {
     fetch('http://localhost:3000/scorecard')
       .then(res => res.json())
-      .then(data => console.log(data))
+      .then(data => console.log('This is the scorecrad page'))
       .catch(err => console.log(err));
   }, [])
 
@@ -35,4 +35,7 @@ function App() {
     </>
   );
 };
+
+
+
 export default App

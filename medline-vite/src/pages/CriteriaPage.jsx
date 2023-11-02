@@ -7,9 +7,19 @@ import medline from '../images/medline.jpg'
 import Header1 from '../components/Header1'
 import Header4 from '../components/Header4'
 import QuantityInput from '../components/Increment'
+import { useState } from 'react'
+
 
 
 function CriteriaPage() {
+
+const [info, setInfo] = useState('')
+
+
+function updateMain() {
+  
+}
+
 return (
   <>
       <div id="container"> 
@@ -19,7 +29,9 @@ return (
         </div>
         <div id='parent'>
           <Header1 />
-          <Input /> 
+          <input type='text' placeholder='Enter Main Criteria' onChange={(e) => {
+            setInfo(e.target.value)
+          }}/> 
           <Header2 />
           <Input />
           <Header3 />
@@ -28,7 +40,7 @@ return (
           <Input />
           <Input />
           <div>
-          <button className='compile-btn'>COMPILE</button>
+          <button  className='compile-btn'>COMPILE</button>
           <button className='cancel-btn'>CANCEL</button>
           </div>
         </div>
