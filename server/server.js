@@ -4,7 +4,7 @@ const PORT = 4000;
 const app = express();
 const mysql = require('mysql2');
 
-app.use(cors());
+app.use(cors({origin:"http://localhost:3000"}));
 
 
 
