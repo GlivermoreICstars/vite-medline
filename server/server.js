@@ -4,7 +4,7 @@ const PORT = 4000;
 const app = express();
 const mysql = require('mysql2');
 
-app.use(cors({origin:"http://localhost:3000"}));
+app.use(cors({origin:"http://localhost:4000"}));
 
 
 
@@ -72,18 +72,18 @@ app.post("/criteria", (req, res) => {
 
 
 //Update route for criteria
-app.put('/criteria', (req, res) => {
-  const id = req.body.id;
-  const main = req.body.main_criteria;
+// app.put('/criteria', (req, res) => {
+//   const id = req.body.id;
+//   const main = req.body.main_criteria;
 
-  db.query("UPDATE SET criteria main_criteria = ? WHERE id = ?", [main, id], (err, result) => {
-    if(err) {
-      console.log(err)
-    } else {
-      res.send(result);
-    }
-  })
-})
+//   db.query("UPDATE SET criteria main_criteria = ? WHERE id = ?", [main, id], (err, result) => {
+//     if(err) {
+//       console.log(err)
+//     } else {
+//       res.send(result);
+//     }
+//   })
+// })
 
 //delete route for criteria
 // app.delete()
