@@ -3,10 +3,11 @@ const cors = require('cors')
 const PORT = 4000;
 const app = express();
 const mysql = require('mysql2');
+const bodyParser = require('body-parser');
 
-app.use(cors({origin:"http://localhost:4000"}));
+app.use(cors({origin:"http://localhost:5173"}));
 
-
+app.use(bodyParser.json());
 
 // Create a MySQL database connection
 const db = mysql.createConnection({
@@ -40,7 +41,7 @@ app.get('/scorecard', (req, res) => {
 //Post for scorecard
 app.post("/scorecard", (req, res) => {
   const sql = "INSERT INTO scorecard (`criteria`, `FLname`, `employID`, `date`, `requirements`, `score`, `justifications`) VALUES (?);"
-  const values = ['operations', 'Jaleel Payne', '4', '2023/2/11', 'general requirements', '10', 'went well']
+  const values = ['something', 'Jarviel Glenn', '6', '2023/2/11', 'general requirements', '10', 'went well']
 
   db.query(sql, [values], (err, data)=> {
     if(err) return res.json(err)
@@ -60,15 +61,23 @@ app.get('/criteria', (req, res) => {
 
 //post route for criteria
 app.post("/criteria", (req, res) => {
-  const sql = "INSERT INTO criteria (`main_criteria`, `secondary_criteria`, `scoring_range`, `requirements`) VALUES (?)"
-  const values = ["project management 2", "operations", "5", "requirements general"]
+  try {
+    const sql = "INSERT INTO criteria (`main_criteria`, `secondary_criteria`, `scoring_range`, `requirements`) VALUES (?, ?, ?, ?)";
+    const values = [req.body.main_criteria, req.body.secondary_criteria, req.body.scoring_range, req.body.requirements];
 
-  db.query(sql, [values], (err, data)=> {
-    if(err) return res.json(err)
-    return res.json("Template has been created")
-  })
- 
-})
+    db.query(sql, values, (err, data) => {
+      if (err) {
+        console.error("Error in the database query:", err);
+        return res.status(500).json({ error: "Internal server error", details: err.message });
+      }
+
+      return res.status(200).json({ message: "Template has been created" });
+    });
+  } catch (error) {
+    console.error("Error in POST operation:", error);
+    return res.status(500).json({ error: "Internal server error", details: error.message });
+  }
+});
 
 
 //Update route for criteria
