@@ -4,15 +4,58 @@ import { useState } from "react"
 
 function Scorecard() {
 
-const [state, setState] = useState(false)
-const [state1, setState1] = useState(false)
+const [criteria, setCriteria] = useState('');
+const [FLname, setFLname] = useState('');
+const [employid, setEmployid] = useState('');
+const [date, setDate] = useState('');
+const [requirements, setRequirements] = useState('');
+const [score, setScore] = useState('');
+const [justification, setJustifications] = useState('');
 
-const toggle2 = () => {
-  setState1(!state1)
-}
-const toggle = () => {
-  setState(!state)
-}
+
+const handleCancel = () => {
+  setCriteria('');
+  setFLname('');
+  setEmployid('');
+  setDate('');
+  setRequirements('');
+  setScore('');
+  setJustifications('');
+};
+
+
+const handleSave =(e) => {
+  e.preventDefault();
+
+  const data = {
+    criteria: criteria,
+    FLname: FLname,
+    employID: employid,
+    date: date,
+    requirements: requirements,
+    score: score,
+  };
+
+
+fetch('http://localhost:4000/scorecard', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((responseData) => {
+        console.log('Scorecard data posted:', responseData);
+        
+      })
+      .catch((error) => {
+        console.error('Error posting scorecard data:', error);
+        
+      });
+  };
+
+
 
   return (
 
@@ -22,37 +65,48 @@ const toggle = () => {
     <label>
       Criteria
       <input
-        size={16}
-        name="enter-criteria"
-        placeholder="Enter Criteria
+         type="text"
+         name="criteria"
+         placeholder="Enter main criteria"
+         value={criteria}
+         onChange={(e) => setCriteria(e.target.value)}
   
   
-  "
+  
       />
     </label>
     Name/Auditor
     <label>
       <input
-        className="name-input"
-        placeholder="Enter name
+         type="text"
+         name="FLname"
+         placeholder="Enter full name"
+         value={FLname}
+         onChange={(e) => setFLname(e.target.value)}
   
-  
-  "
       />
     </label>
     <label>
       Employee Id
       <input
-        placeholder="Enter employee ID
+         type="text"
+         name="employeeID"
+         placeholder="Enter credentials"
+         value={employid}
+         onChange={(e) => setEmployid(e.target.value)}
   
   
-  "
+  
       />
     </label>
     <label>
       Date
       <input
-        placeholder="Enter Date"/>
+         type="date"
+         name="date"
+         placeholder="Enter date"
+         value={date}
+         onChange={(e) => setDate(e.target.value)}/>
     </label>
   </header>
   <div>
@@ -80,25 +134,25 @@ const toggle = () => {
             <tr>
               <th className="table-heading-1">1</th>
               <th>
-                <input />
+                <input type="text" name="requirement" value={requirements} onChange={(e) => setRequirements(e.target.value)}/>
               </th>
             </tr>
             <tr>
               <th className="table-heading-2">2</th>
               <th>
-                <input />
+              <input type="text" name="requirement" value={requirements} onChange={(e) => setRequirements(e.target.value)}/>
               </th>
             </tr>
             <tr>
               <th className="table-heading-3">3</th>
               <th>
-                <input />
+              <input type="text" name="requirement" value={requirements} onChange={(e) => setRequirements(e.target.value)}/>
               </th>
             </tr>
             <tr>
               <th className="table-heading-4">4</th>
               <th>
-                <input />
+              <input type="text" name="requirement" value={requirements} onChange={(e) => setRequirements(e.target.value)}/>
               </th>
             </tr>
             <tr>
@@ -112,7 +166,7 @@ const toggle = () => {
       </section>
     </div>
     <div>
-      <p className="score-box">5</p>
+      <input onChange={(e) => setScore(e.target.value)} value={score}  className="score-box"/>
     </div>
     <div className="create">
       <select>
@@ -127,7 +181,9 @@ const toggle = () => {
       <textarea
         className="justifications"
         placeholder="Justifications go here"
-        defaultValue={""}
+        
+        value={justification}
+        onChange={(e) => setJustifications(e.target.value)} 
       />
     </div>
   </div>
@@ -147,31 +203,31 @@ const toggle = () => {
             <tr>
               <th className="table-heading-1">1</th>
               <th>
-                <input />
+              <input type="text" name="requirement" value={requirements} onChange={(e) => setRequirements(e.target.value)}/>
               </th>
             </tr>
             <tr>
               <th className="table-heading-2">2</th>
               <th>
-                <input />
+              <input type="text" name="requirement" value={requirements} onChange={(e) => setRequirements(e.target.value)}/>
               </th>
             </tr>
             <tr>
               <th className="table-heading-3">3</th>
               <th>
-                <input />
+                <input type="text" name="requirement" value={requirements} onChange={(e) => setRequirements(e.target.value)}/>
               </th>
             </tr>
             <tr>
               <th className="table-heading-4">4</th>
               <th>
-                <input />
+                <input type="text" name="requirement" value={requirements} onChange={(e) => setRequirements(e.target.value)}/>
               </th>
             </tr>
             <tr>
               <th className="table-heading-5">5</th>
               <th>
-                <input />
+                <input type="text" name="requirement" value={requirements} onChange={(e) => setRequirements(e.target.value)}/>
               </th>
             </tr>
           </tbody>
@@ -179,7 +235,7 @@ const toggle = () => {
       </section>
     </div>
     <div>
-      <p className="score-box-2">3</p>
+    <input onChange={(e) => setScore(e.target.value)} value={score}  className="score-box"/>
     </div>
     <div className="create">
       <select>
@@ -194,7 +250,9 @@ const toggle = () => {
       <textarea
         className="justifications"
         placeholder="Justifications go here"
-        defaultValue={""}
+        
+        value={justification}
+        onChange={(e) => setJustifications(e.target.value)}
       />
     </div>
   </div>
@@ -213,38 +271,38 @@ const toggle = () => {
           <tr>
             <th className="table-heading-1">1</th>
             <th>
-              <input />
+              <input type="text" name="requirement" value={requirements} onChange={(e) => setRequirements(e.target.value)}/>
             </th>
           </tr>
           <tr>
             <th className="table-heading-2">2</th>
             <th>
-              <input />
+              <input type="text" name="requirement" value={requirements} onChange={(e) => setRequirements(e.target.value)}/>
             </th>
           </tr>
           <tr>
             <th className="table-heading-3">3</th>
             <th>
-              <input />
+              <input type="text" name="requirement" value={requirements} onChange={(e) => setRequirements(e.target.value)}/>
             </th>
           </tr>
           <tr>
             <th className="table-heading-4">4</th>
             <th>
-              <input />
+              <input type="text" name="requirement" value={requirements} onChange={(e) => setRequirements(e.target.value)}/>
             </th>
           </tr>
           <tr>
             <th className="table-heading-5">5</th>
             <th>
-              <input />
+              <input type="text" name="requirement" value={requirements} onChange={(e) => setRequirements(e.target.value)}/>
             </th>
           </tr>
         </tbody>
       </table>
     </section>
     <div>
-      <p className="score-box-3">1</p>
+      <p onChange={(e) => setScore(e.target.value)} value={score}  className="score-box-3">1</p>
     </div>
     <div className="create">
       <select>
@@ -257,9 +315,10 @@ const toggle = () => {
     </div>
     <div>
       <textarea
-        className="justifications"
+       className="justifications"
         placeholder="Justifications go here"
-        defaultValue={""}
+        value={justification}
+        onChange={(e) => setJustifications(e.target.value)}
       />
     </div>
   </div>
@@ -279,31 +338,31 @@ const toggle = () => {
             <tr>
               <th className="table-heading-1">1</th>
               <th>
-                <input />
+                <input type="text" name="requirement" value={requirements} onChange={(e) => setRequirements(e.target.value)}/>
               </th>
             </tr>
             <tr>
               <th className="table-heading-2">2</th>
               <th>
-                <input />
+                <input type="text" name="requirement" value={requirements} onChange={(e) => setRequirements(e.target.value)}/>
               </th>
             </tr>
             <tr>
               <th className="table-heading-3">3</th>
               <th>
-                <input />
+              <input type="text" name="requirement" value={requirements} onChange={(e) => setRequirements(e.target.value)}/>
               </th>
             </tr>
             <tr>
               <th className="table-heading-4">4</th>
               <th>
-                <input />
+              <input type="text" name="requirement" value={requirements} onChange={(e) => setRequirements(e.target.value)}/>
               </th>
             </tr>
             <tr>
               <th className="table-heading-5">5</th>
               <th>
-                <input />
+              <input type="text" name="requirement" value={requirements} onChange={(e) => setRequirements(e.target.value)}/>
               </th>
             </tr>
           </tbody>
@@ -311,7 +370,7 @@ const toggle = () => {
       </section>
     </div>
     <div>
-      <p className="score-box-4">2</p>
+      <p onChange={(e) => setScore(e.target.value)} value={score}  className="score-box-4">2</p>
     </div>
     <div className="create">
       <select>
@@ -326,20 +385,21 @@ const toggle = () => {
       <textarea
         className="justifications"
         placeholder="Justifications go here"
-        defaultValue={""}
+        
+        value={justification}
+        onChange={(e) => setJustifications(e.target.value)}
       />
     </div>
   </div>
   <div className="buttons">
-    <button onClick={ toggle2 } className="edit-button" id="edit-btn">
-      { state1 ? 'You may edit document' : 'Edit'}
+    
+    <button onClick={ handleSave } className="save-results-button" id="save-btn">
+      Save Scorecard
     </button>
-    <button onClick={ toggle } className="save-results-button" id="save-btn">
-      { state ? 'Results Saved' : 'Save'}
-    </button>
+    <button onClick={ handleCancel } className="edit-button">Cancel</button>
   </div>
 </>
-  )}
+  )};
 
 
   export default Scorecard

@@ -38,19 +38,40 @@ app.get('/scorecard', (req, res) => {
     return res.json(data);
   })
 })
-//Post for scorecard
-app.post("/scorecard", (req, res) => {
-  const sql = "INSERT INTO scorecard (`criteria`, `FLname`, `employID`, `date`, `requirements`, `score`, `justifications`) VALUES (?);"
-  const values = ['something', 'Jarviel Glenn', '6', '2023/2/11', 'general requirements', '10', 'went well']
+//old post for scorecard
+// app.post("/scorecard", (req, res) => {
+//   const sql = "INSERT INTO scorecard (`criteria`, `FLname`, `employID`, `date`, `requirements`, `score`, `justifications`) VALUES (?);"
+//   const values = ['something', 'Jarviel Glenn', '6', '2023/2/11', 'general requirements', '10', 'went well']
 
-  db.query(sql, [values], (err, data)=> {
-    if(err) return res.json(err)
-    return res.json(data)
-  })
+//   db.query(sql, [values], (err, data)=> {
+//     if(err) return res.json(err)
+//     return res.json(data)
+//   })
  
-})
+// })
 
-//create route for criteria
+//post for scorecard
+
+app.post("/scorecard", (req, res) => {
+  try {
+    const sql = "INSERT INTO scorecard (`criteria`, `FLname`, `employID`, `date`, `requirements`, `score`, `justifications`) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    const values = [req.body.criteria, req.body.FLname, req.body.employID, req.body.date, req.body.requirements, req.body.score, req.body.justifications];
+
+    db.query(sql, values, (err, data) => {
+      if (err) {
+        console.error("Error in the database query:", err);
+        return res.status(500).json({ error: "Internal server error", details: err.message });
+      }
+
+      return res.status(200).json({ message: "Scorecard made" });
+    });
+  } catch (error) {
+    console.error("Error in POST operation:", error);
+    return res.status(500).json({ error: "Internal server error", details: error.message });
+  }
+});
+
+//create get/create route for criteria
 app.get('/criteria', (req, res) => {
   const sql = "SELECT * FROM criteria"
   db.query(sql, (err, data)=> {

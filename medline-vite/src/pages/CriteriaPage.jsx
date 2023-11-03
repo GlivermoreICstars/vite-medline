@@ -12,10 +12,20 @@ function CriteriaPage() {
   const [range, setRange] = useState('');
   const [requirement, setRequirement] = useState('');
 
+  const handleCancel = (e) => {
+    e.preventDefault();
+
+    setMain('');
+    setSecond('');
+    setRange('');
+    setRequirement('');
+  
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Create an object with the data to send to the server
+    // {} to server
     const data = {
       main_criteria: main,
       secondary_criteria: second,
@@ -23,7 +33,7 @@ function CriteriaPage() {
       requirements: requirement,
     };
 
-    // Send a POST request to your server
+    // sendin post req to server
     fetch('http://localhost:4000/criteria', {
       method: 'POST',
       headers: {
@@ -34,11 +44,11 @@ function CriteriaPage() {
       .then((response) => response.json())
       .then((responseData) => {
         console.log('Data posted:', responseData);
-        // Handle the response from the server, e.g., show a success message
+        
       })
       .catch((error) => {
         console.error('Error posting data:', error);
-        // Handle errors, e.g., show an error message
+        
       });
   };
 
@@ -81,7 +91,7 @@ function CriteriaPage() {
             />
             <div>
               <button className='compile-btn' type="submit">COMPILE</button>
-              <button className='cancel-btn'>CANCEL</button>
+              <button  onClick={handleCancel} className='cancel-btn'>CANCEL</button>
             </div>
           </form>
         </div>
