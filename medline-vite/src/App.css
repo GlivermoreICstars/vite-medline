@@ -219,7 +219,36 @@ h2 {
   padding-left: 80px;
 }
 
+.option-container {
+  display: flex;
+  justify-content: center;
+  
+}
+.option-box {
+  color: white;
+  font-size: larger;
+  text-align: center;
+  padding: none;
+  width: 200px;
+  height: 200px;
+  background-color: #174c9b;
+  margin-left: 90px;
+  margin-right: 90px;
+  margin-top: 90px;
+  cursor: pointer;
+}
 
+.option {
+  
+  margin: none;
+  padding: none;
+  color: white;
+  
+}
+i {
+  padding: 10px;
+  
+}
 
 
 
