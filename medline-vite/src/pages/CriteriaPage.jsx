@@ -5,8 +5,13 @@ import Header3 from '../components/Header3';
 import medline from '../images/medline.jpg';
 import Header1 from '../components/Header1';
 import Header4 from '../components/Header4';
+import { useNavigate } from "react-router-dom";
+
 
 function CriteriaPage() {
+
+  const navigate = useNavigate()
+
   const [main, setMain] = useState('');
   const [second, setSecond] = useState('');
   const [range, setRange] = useState('');
@@ -90,7 +95,7 @@ function CriteriaPage() {
               onChange={(e) => setRequirement(e.target.value)}
             />
             <div>
-              <button className='compile-btn' type="submit">COMPILE</button>
+              <button onClick={() => navigate('/scorecard')} className='compile-btn' type="submit">COMPILE</button>
               <button  onClick={handleCancel} className='cancel-btn'>CANCEL</button>
             </div>
           </form>

@@ -1,13 +1,27 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 
 function Home() {
+
+  const navigate = useNavigate()
+
+
+
   return (
     <>
-      <h1>Make home page have 3 options, scorecard library, criteria page and scorecard page. Need to find out how to update data on a different page based on posted data on another???</h1>
-      
-    </>
-  )
-}
+    <div className="option-container">
+      <button className="option-box">Scorecard History
+      <i className="fa-solid fa-clock-rotate-left fa-5x fa-fade"></i>
+      </button>
+      <button onClick={() => navigate('/scorecardlibrary') } className="option-box">Template Library
+        <i className="fa-regular fa-window-restore fa-5x fa-fade"></i>
+      </button>
+      <button onClick={() => navigate('/criteria') } className="option-box">Create new scorecard
+        <i className="fa-solid fa-gavel fa-5x fa-fade"></i>
+      </button>
+    </div>
+  </>
+)};
 
-export default Home
+export default Home;
