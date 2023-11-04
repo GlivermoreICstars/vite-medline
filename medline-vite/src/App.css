@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
 .header {
   display: flex;
@@ -7,7 +7,7 @@
 }
 
 .header-text { 
-  font-family: 'Josefin Sans', cursive;
+  font-family: 'Montserrat', cursive;
   color: #174c9b;
 }
 .logo-container {
@@ -60,12 +60,17 @@
   justify-content: space-between;
   list-style: none;
   background-color:  #174c9b;
+  padding-right: 60px;
+  padding: 20px;
+  font-family: 'Montserrat';
+  font-size:18px;
  
 }
 a {
   color: white;
   text-decoration: none;
-  padding: 10px;
+ 
+  
 }
 
 a:hover {
@@ -77,10 +82,6 @@ a:hover {
 .header-1 {
   display: flex;
   justify-content: space-between;
-}
-
-.label-1 {
-  font-size: 16px;
 }
 
 input:focus, textarea {
@@ -101,6 +102,8 @@ input:focus, textarea {
   border: 1px solid black;
   font-size: 10px;
 }
+
+
 
 .first-row {
   display: flex;

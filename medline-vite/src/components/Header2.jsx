@@ -6,7 +6,7 @@ function Header2() {
   return (
     <>
       <header className="header">
-        <h2 className="header-text">Secondary Criteria</h2>
+        <h2 className="header-text">Optional Criteria</h2>
         </header>
     </>
   )

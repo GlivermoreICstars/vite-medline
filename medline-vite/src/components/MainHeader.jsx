@@ -8,7 +8,6 @@ function MainHeader() {
       <Link to='/'>Home</Link>
       <Link to='/ScorecardLibrary'>Template Library</Link>
       <Link to='/criteria'>Criteria Page</Link>
-      <Link to='/scorecard'>Scorecard</Link>
     </ul>
   </div>
 )};

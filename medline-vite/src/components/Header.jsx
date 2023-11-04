@@ -5,7 +5,7 @@ function Header() {
   return (
     <>
       <header className="header">
-        <h1 className="header-text">Scorecard Criteria Page</h1>
+        <h1 className="header-text">Criteria Page</h1>
       </header>
     </>
   )
