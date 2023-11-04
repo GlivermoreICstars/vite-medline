@@ -3,6 +3,7 @@ import './App.css'
 import Scorecard from './pages/Scorecard'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NoPage from './pages/NoPage';
+import ScoreCardLibrary from './pages/ScoreCardLibrary';
 import Home from './pages/Home';
 import CriteriaPage from './pages/CriteriaPage';
 import MainHeader from './components/MainHeader';
@@ -28,6 +29,7 @@ function App() {
         <Routes>
           <Route index element={<Home />}/>
           <Route path="/Home" element={<Home />}/>
+          <Route path='/ScoreCardLibrary' element={<ScoreCardLibrary />}/>
           <Route path="/Criteria" element={<CriteriaPage />}/>
           <Route path="/Scorecard" element={<Scorecard />}/>
           <Route path="*" element={<NoPage />}/>
