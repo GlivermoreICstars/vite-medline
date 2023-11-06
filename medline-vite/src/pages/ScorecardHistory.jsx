@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import { DataBaseContext } from '../App';
 
-const ShowCriteria = () => {
+const ScorecardHistory = () => {
   const data = useContext(DataBaseContext);
 
 
   return(
   <div>
-  <h1>ShowCriteria</h1>
+  <h1>Scorecard History</h1>
   <ul>
     {data.map((item) => (
       <li key={item.criteria_id}>
@@ -24,4 +24,4 @@ const ShowCriteria = () => {
 </div>
 );
     }
-export default ShowCriteria;
+export default ScorecardHistory;

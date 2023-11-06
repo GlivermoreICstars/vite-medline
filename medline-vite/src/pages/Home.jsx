@@ -11,7 +11,7 @@ function Home() {
   return (
     <>
     <div className="option-container">
-      <button className="option-box">Scorecard History
+      <button onClick={() => navigate('/ScorecardHistory')}className="option-box">Scorecard History
       <i className="fa-solid fa-clock-rotate-left fa-5x fa-fade"></i>
       </button>
       <button onClick={() => navigate('/scorecardlibrary') } className="option-box">Template Library

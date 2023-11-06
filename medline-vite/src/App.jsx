@@ -7,7 +7,7 @@ import ScoreCardLibrary from './pages/ScoreCardLibrary';
 import Home from './pages/Home';
 import CriteriaPage from './pages/CriteriaPage';
 import MainHeader from './components/MainHeader';
-import ShowCriteria from './pages/ShowCriteria';
+import ScorecardHistory from './pages/ScorecardHistory';
 
 export const DataBaseContext = createContext();
 
@@ -33,7 +33,7 @@ useEffect(() => {
           <Route index element={<Home />}/>
           <Route path="/Home" element={<Home />}/>
           <Route path='/ScoreCardLibrary' element={<ScoreCardLibrary />}/>
-          <Route path='/Show-criteria' element={<ShowCriteria />}/>
+          <Route path='/ScorecardHistory' element={<ScorecardHistory />}/>
           <Route path="/Criteria" element={<CriteriaPage />}/>
           <Route path="/Scorecard" element={<Scorecard />}/>
           <Route path="*" element={<NoPage />}/>

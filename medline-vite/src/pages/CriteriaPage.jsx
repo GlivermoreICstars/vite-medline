@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 function CriteriaPage() {
 
-  const navigate = useNavigate()
+  
 
   const [main, setMain] = useState('');
   const [second, setSecond] = useState('');
@@ -57,6 +57,8 @@ function CriteriaPage() {
       level2: level2,
       level3: level3,
       criteria_id: criteria_id,
+
+
     };
 
     console.log(data);
@@ -144,6 +146,7 @@ function CriteriaPage() {
             <div>
               <button onClick={handleSubmit} className='compile-btn' type="submit">COMPILE</button>
               <button  onClick={handleCancel} className='cancel-btn'>CANCEL</button>
+              <button className='compile-btn' onClick={() => navigate('/scorecard')}>Go to scorecard</button>
             </div>
           </form>
         </div>
