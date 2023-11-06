@@ -7,19 +7,22 @@ import ScoreCardLibrary from './pages/ScoreCardLibrary';
 import Home from './pages/Home';
 import CriteriaPage from './pages/CriteriaPage';
 import MainHeader from './components/MainHeader';
+import ShowCriteria from './pages/ShowCriteria';
 
-
-const DataBaseContext = createContext();
+export const DataBaseContext = createContext();
 
 function App() {
   const [data, setData] = useState([])
 // use useEffect if you want to display any scorecard data to the screen.
-  useEffect(() => {
-    fetch('http://localhost:4000/criteria')
-      .then(res => res.json())
-      .then(data => console.log(data))
-      .catch(err => console.log(err));
-  }, [])
+useEffect(() => {
+  fetch('http://localhost:4000/criteria')
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);  // Logging the data before setting it in the state to confirm
+      setData(data);      // Set the data in the state
+    })
+    .catch(err => console.log(err));
+}, []);
 
 
   return (
@@ -30,6 +33,7 @@ function App() {
           <Route index element={<Home />}/>
           <Route path="/Home" element={<Home />}/>
           <Route path='/ScoreCardLibrary' element={<ScoreCardLibrary />}/>
+          <Route path='/Show-criteria' element={<ShowCriteria />}/>
           <Route path="/Criteria" element={<CriteriaPage />}/>
           <Route path="/Scorecard" element={<Scorecard />}/>
           <Route path="*" element={<NoPage />}/>
