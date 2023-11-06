@@ -5,6 +5,10 @@ import {DataBaseContext} from '../App'
 function Scorecard() {
 
   const scorecardData = useContext(DataBaseContext)
+  const FLname1 = [scorecardData]
+
+  console.log("scorecardData", scorecardData[3].FLname)
+  
 
 const [criteria, setCriteria] = useState('');
 const [FLname, setFLname] = useState('');
@@ -102,7 +106,7 @@ const displayData = (e) => {
           type="text"
           name="FLname"
           placeholder="Enter full name"
-          value={scorecardData.FLname || FLname} // Use scorecardData if available, or fallback to FLname state
+          value={scorecardData[3].FLname || FLname1} 
           onChange={(e) => setFLname(e.target.value)}
   
       />
@@ -346,72 +350,7 @@ const displayData = (e) => {
   <div className="first-row-heading">
     <h2>Leadership</h2>
   </div>
-  <div className="first-row">
-    <div className="first-row-text">
-      <p className="score-question">
-        What score best describes your situation?
-      </p>
-    </div>
-    <div>
-      <section>
-        <table>
-          <tbody>
-            <tr>
-              <th className="table-heading-1">1</th>
-              <th>
-                <input type="text" name="requirement" value={requirements} onChange={(e) => setRequirements(e.target.value)}/>
-              </th>
-            </tr>
-            <tr>
-              <th className="table-heading-2">2</th>
-              <th>
-                <input type="text" name="requirement" value={requirements} onChange={(e) => setRequirements(e.target.value)}/>
-              </th>
-            </tr>
-            <tr>
-              <th className="table-heading-3">3</th>
-              <th>
-              <input type="text" name="requirement" value={requirements} onChange={(e) => setRequirements(e.target.value)}/>
-              </th>
-            </tr>
-            <tr>
-              <th className="table-heading-4">4</th>
-              <th>
-              <input type="text" name="requirement" value={requirements} onChange={(e) => setRequirements(e.target.value)}/>
-              </th>
-            </tr>
-            <tr>
-              <th className="table-heading-5">5</th>
-              <th>
-              <input type="text" name="requirement" value={requirements} onChange={(e) => setRequirements(e.target.value)}/>
-              </th>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-    </div>
-    <div>
-      <p onChange={(e) => setScore(e.target.value)} value={score}  className="score-box-4">2</p>
-    </div>
-    <div className="create">
-      <select>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
-    </div>
-    <div>
-      <textarea
-        className="justifications"
-        placeholder="Justifications go here"
-        
-        value={justification}
-        onChange={(e) => setJustifications(e.target.value)}
-      />
-    </div>
-  </div>
+  
   <div className="buttons">
     
     <button onClick={ handleSave } className="save-results-button" id="save-btn">
