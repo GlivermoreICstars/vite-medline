@@ -5,7 +5,7 @@ import Header3 from '../components/Header3';
 import medline from '../images/medline.jpg';
 import Header1 from '../components/Header1';
 import Header4 from '../components/Header4';
-import { useNavigate } from "react-router-dom";
+
 
 
 function CriteriaPage() {
@@ -20,6 +20,9 @@ function CriteriaPage() {
   const [level2, setLevel2] = useState('')
   const [level3, setLevel3] = useState('')
   const [criteria_id, setCriteria_id] = useState('')
+  const [FLname, setFLname] = useState('')
+  const [date, setDate] = useState('')
+  const [justifications, setJustifications] = useState('')
   
 
   const handleCancel = (e) => {
@@ -33,6 +36,9 @@ function CriteriaPage() {
     setLevel2('')
     setLevel3('')
     setCriteria_id('')
+    FLname('')
+    date('')
+    justifications('')
   
   };
 
@@ -46,6 +52,9 @@ function CriteriaPage() {
     console.log('level2:', level2);
     console.log('level3:', level3);
     console.log('criteria_id', criteria_id);
+    console.log('FLname:', FLname);
+    console.log('date:', date);
+    console.log('justifications:', justifications)
 
     // {} to server
     const data = {
@@ -57,6 +66,9 @@ function CriteriaPage() {
       level2: level2,
       level3: level3,
       criteria_id: criteria_id,
+      FLname: FLname,
+      date: date,
+      justifications: justifications,
 
 
     };
@@ -142,6 +154,24 @@ function CriteriaPage() {
               placeholder='criteria_id'
               value={criteria_id}
               onChange={(e) => setCriteria_id(e.target.value)}
+            />
+            <input
+              type='text'
+              placeholder='Enter name'
+              value={FLname}
+              onChange={(e) => setFLname(e.target.value)}
+            />
+            <input
+              type='text'
+              placeholder='Enter date'
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+            />
+            <input
+              type='text'
+              placeholder='justifications'
+              value={justifications}
+              onChange={(e) => setJustifications(e.target.value)}
             />
             <div>
               <button onClick={handleSubmit} className='compile-btn' type="submit">COMPILE</button>

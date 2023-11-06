@@ -34,10 +34,13 @@ const handleSave =(e) => {
     date: date,
     requirements: requirements,
     score: score,
+    FLname: FLname,
+    date: date,
+    justifications: justifications,
   };
 
 
-fetch('http://localhost:4000/scorecard', {
+fetch('http://localhost:4000/criteria', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -55,7 +58,23 @@ fetch('http://localhost:4000/scorecard', {
       });
   };
 
-
+const displayData = (e) => {
+  fetch('http://localhost:4000/criteria', {
+    method: 'GET', // Use the GET method
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((responseData) => {
+      console.log('Scorecard data retrieved:', responseData);
+      // Handle the retrieved data as needed
+    })
+    .catch((error) => {
+      console.error('Error retrieving scorecard data:', error);
+      // Handle errors as needed
+    });
+}
 
   return (
 
@@ -397,6 +416,7 @@ fetch('http://localhost:4000/scorecard', {
       Save Scorecard
     </button>
     <button onClick={ handleCancel } className="edit-button">Cancel</button>
+    <button onClick={ displayData }>Import scorecard data</button>
   </div>
 </>
   )};

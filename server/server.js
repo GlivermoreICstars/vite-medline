@@ -11,10 +11,10 @@ app.use(bodyParser.json());
 
 // Create a MySQL database connection
 const db = mysql.createConnection({
-  host: 'localhost', // Change this to your MySQL server's host
-  user: 'root',       // Change this to your MySQL username
-  password: 'password3',   // Change this to your MySQL password
-  database: 'medline_db'    // Change this to your MySQL database name
+  host: 'localhost', // Change this to the MySQL server's host
+  user: 'root',       // Change this to the MySQL username
+  password: 'password3',   // Change this to the MySQL password
+  database: 'medline_db'    // Change this to the MySQL database name, yess!
 });
 
 // Connect to the database
@@ -38,17 +38,6 @@ app.get('/scorecard', (req, res) => {
     return res.json(data);
   })
 })
-//old post for scorecard
-// app.post("/scorecard", (req, res) => {
-//   const sql = "INSERT INTO scorecard (`criteria`, `FLname`, `employID`, `date`, `requirements`, `score`, `justifications`) VALUES (?);"
-//   const values = ['something', 'Jarviel Glenn', '6', '2023/2/11', 'general requirements', '10', 'went well']
-
-//   db.query(sql, [values], (err, data)=> {
-//     if(err) return res.json(err)
-//     return res.json(data)
-//   })
- 
-// })
 
 //post for scorecard
 
@@ -80,12 +69,12 @@ app.get('/criteria', (req, res) => {
   })
 })
 
-//post route for criteria
+// I created post route for criteria
 app.post("/criteria", (req, res) => {
   console.log('Received POST request for criteria:', req.body);
   try {
-    const sql = "INSERT INTO criteria (`main_criteria`, `secondary_criteria`, `scoring_range`, `requirements`, `level1`, `level2`, `level3`, `criteria_id`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-    const values = [req.body.main_criteria, req.body.secondary_criteria, req.body.scoring_range, req.body.requirements, req.body.level1, req.body.level2, req.body.level3, req.body.criteria_id];
+    const sql = "INSERT INTO criteria (`main_criteria`, `secondary_criteria`, `scoring_range`, `requirements`, `level1`, `level2`, `level3`, `criteria_id`, `FLname`, `date`, `justifications`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    const values = [req.body.main_criteria, req.body.secondary_criteria, req.body.scoring_range, req.body.requirements, req.body.level1, req.body.level2, req.body.level3, req.body.criteria_id, req.body.FLname, req.body.date, req.body.justifications];
 
     db.query(sql, values, (err, data) => {
       if (err) {
