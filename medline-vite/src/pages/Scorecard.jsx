@@ -1,8 +1,10 @@
 import React from "react"
-import { useState } from "react"
-
+import { useState, useContext } from "react"
+import {DataBaseContext} from '../App'
 
 function Scorecard() {
+
+  const scorecardData = useContext(DataBaseContext)
 
 const [criteria, setCriteria] = useState('');
 const [FLname, setFLname] = useState('');
@@ -87,7 +89,7 @@ const displayData = (e) => {
          type="text"
          name="criteria"
          placeholder="Enter main criteria"
-         value={criteria}
+         value={scorecardData.criteria || criteria}
          onChange={(e) => setCriteria(e.target.value)}
   
   
@@ -97,11 +99,11 @@ const displayData = (e) => {
     Name/Auditor
     <label>
       <input
-         type="text"
-         name="FLname"
-         placeholder="Enter full name"
-         value={FLname}
-         onChange={(e) => setFLname(e.target.value)}
+          type="text"
+          name="FLname"
+          placeholder="Enter full name"
+          value={scorecardData.FLname || FLname} // Use scorecardData if available, or fallback to FLname state
+          onChange={(e) => setFLname(e.target.value)}
   
       />
     </label>

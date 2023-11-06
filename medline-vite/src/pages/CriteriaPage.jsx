@@ -5,7 +5,7 @@ import Header3 from '../components/Header3';
 import medline from '../images/medline.jpg';
 import Header1 from '../components/Header1';
 import Header4 from '../components/Header4';
-
+import { useNavigate } from 'react-router-dom';
 
 
 function CriteriaPage() {
@@ -93,6 +93,10 @@ function CriteriaPage() {
         
       });
   };
+const navigate = useNavigate();
+  const handleNavigate = () => {
+    navigate('/scorecard')
+  }
 
   return (
     <>
@@ -176,7 +180,7 @@ function CriteriaPage() {
             <div>
               <button onClick={handleSubmit} className='compile-btn' type="submit">COMPILE</button>
               <button  onClick={handleCancel} className='cancel-btn'>CANCEL</button>
-              <button className='compile-btn' onClick={() => navigate('/scorecard')}>Go to scorecard</button>
+              <button className='compile-btn' onClick={handleNavigate}>Go to scorecard</button>
             </div>
           </form>
         </div>
