@@ -91,6 +91,36 @@ app.post("/criteria", (req, res) => {
 });
 
 
+
+app.get('/scorecard', (req, res) => {
+  const sql = "SELECT * FROM criteria"
+  db.query(sql, (err, data)=> {
+    if(err) return res.json(err)
+    return res.json(data)
+  })
+})
+
+
+
+app.post("/scorecard", (req, res) => {
+  console.log('Received POST request for criteria:', req.body);
+  try {
+    const sql = "INSERT INTO scorecard (`scorecard_id`, `user_name`, `subject_name`, `date_created`, `criteria1`, `score1`, `justification1`, `criteria2`, `score2`, `justification2`, `criteria3`, `score3`, `justification3`,`criteria4`, `score4`, `justification4`, `criteria5`, `score5`, `justification5`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    const values = [req.body.scorecard_id, req.body.user_name, req.body.subject_name, req.body.date_created, req.body.criteria1, req.body.score1, req.body.justification1, req.body.criteria2, req.body.score2, req.body.justification2, req.body.criteria3, req.body.score3, req.body.justification3, req.body.criteria4, req.body.score4, req.body.justification4, req.body.criteria5, req.body.score5, req.body.justification5];
+
+    db.query(sql, values, (err, data) => {
+      if (err) {
+        console.error("Error in the database query:", err);
+        return res.status(500).json({ error: "Internal server error", details: err.message });
+      }
+
+      return res.status(200).json({ message: "Template has been created" });
+    });
+  } catch (error) {
+    console.error("Error in POST operation:", error);
+    return res.status(500).json({ error: "Internal server error", details: error.message });
+  }
+});
 //Update route for criteria
 // app.put('/criteria', (req, res) => {
 //   const id = req.body.id;

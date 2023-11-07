@@ -253,5 +253,7 @@ i {
   
 }
 
-
-
+.scorecard2-container {
+  display: flex;
+  justify-content: center;
+}

@@ -243,7 +243,7 @@ const displayData = (e) => {
     <div>
     <input onChange={(e) => setRange(e.target.value)} value={range}  className="score-box"/>
     </div>
-    <div className="create">
+    <div className="create">s
     </div>
     <div>
       <textarea

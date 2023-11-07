@@ -117,8 +117,11 @@ function CriteriaPage() {
               placeholder='Choose Scoring Range'
               value={range}
               onChange={(e) => setRange(e.target.value)}
-            />
+              min="1"
+              max="3"
+              />
             <Header4 />
+            
             <input
               type='text'
               placeholder='Enter Requirements'
@@ -161,6 +164,7 @@ function CriteriaPage() {
               value={justifications}
               onChange={(e) => setJustifications(e.target.value)}
             />
+            
             <div>
               <button onClick={handleSubmit} className='compile-btn' type="submit">COMPILE</button>
               <button  onClick={handleCancel} className='cancel-btn'>CANCEL</button>
