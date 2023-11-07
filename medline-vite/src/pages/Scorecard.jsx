@@ -121,7 +121,7 @@ const displayData = (e) => {
   
       />
     </label>
-    Name/Auditor
+   Scoring Candidate
     <label>
       <input
           type="text"
