@@ -73,8 +73,8 @@ app.get('/criteria', (req, res) => {
 app.post("/criteria", (req, res) => {
   console.log('Received POST request for criteria:', req.body);
   try {
-    const sql = "INSERT INTO criteria (`main_criteria`, `secondary_criteria`, `scoring_range`, `requirements`, `level1`, `level2`, `level3`, `criteria_id`, `FLname`, `date`, `justifications`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    const values = [req.body.main_criteria, req.body.secondary_criteria, req.body.scoring_range, req.body.requirements, req.body.level1, req.body.level2, req.body.level3, req.body.criteria_id, req.body.FLname, req.body.date, req.body.justifications];
+    const sql = "INSERT INTO criteria (`main_criteria`, `scoring_range`, `requirements`, `level1`, `level2`, `level3`, `FLname`, `date`, `justifications`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    const values = [req.body.main_criteria, req.body.scoring_range, req.body.requirements, req.body.level1, req.body.level2, req.body.level3, req.body.FLname, req.body.date, req.body.justifications];
 
     db.query(sql, values, (err, data) => {
       if (err) {

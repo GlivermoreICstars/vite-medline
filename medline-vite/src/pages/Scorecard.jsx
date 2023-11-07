@@ -5,7 +5,7 @@ import {DataBaseContext} from '../App'
 function Scorecard() {
 
   const scorecardData = useContext(DataBaseContext)
-  const FLname1 = [scorecardData]
+  
 
   
   
@@ -114,8 +114,8 @@ const displayData = (e) => {
          type="text"
          name="criteria"
          placeholder="Enter main criteria"
-         value={scorecardData.criteria || criteria}
-         onChange={(e) => setCriteria(e.target.value)}
+         value={main}
+         onChange={(e) => setMain(e.target.value)}
   
   
   
@@ -127,27 +127,16 @@ const displayData = (e) => {
           type="text"
           name="FLname"
           placeholder="Enter full name"
+          value={FLname}
+          onChange={(e) => setFLname(e.target.value)}
          
-  
-      />
-    </label>
-    <label>
-      Employee Id
-      <input
-         type="text"
-         name="employeeID"
-         placeholder="Enter credentials"
-         value={employid}
-         onChange={(e) => setEmployid(e.target.value)}
-  
-  
   
       />
     </label>
     <label>
       Date
       <input
-         type="date"
+         type="text"
          name="date"
          placeholder="Enter date"
          value={date}
@@ -179,39 +168,29 @@ const displayData = (e) => {
             <tr>
               <th className="table-heading-1">1</th>
               <th>
-                <input type="text" name="requirement" value={requirements} onChange={(e) => setRequirements(e.target.value)}/>
+                <input type="text" name="requirement" value={requirement} onChange={(e) => setRequirement(e.target.value)}/>
               </th>
             </tr>
             <tr>
               <th className="table-heading-2">2</th>
               <th>
-              <input type="text" name="requirement" value={requirements} onChange={(e) => setRequirements(e.target.value)}/>
+              <input type="text" name="requirement" value={requirement} onChange={(e) => setRequirement(e.target.value)}/>
               </th>
             </tr>
             <tr>
               <th className="table-heading-3">3</th>
               <th>
-              <input type="text" name="requirement" value={requirements} onChange={(e) => setRequirements(e.target.value)}/>
+              <input type="text" name="requirement" value={requirement} onChange={(e) => setRequirement(e.target.value)}/>
               </th>
             </tr>
-            <tr>
-              <th className="table-heading-4">4</th>
-              <th>
-              <input type="text" name="requirement" value={requirements} onChange={(e) => setRequirements(e.target.value)}/>
-              </th>
-            </tr>
-            <tr>
-              <th className="table-heading-5">5</th>
-              <th>
-                <input />
-              </th>
-            </tr>
+            
+            
           </tbody>
         </table>
       </section>
     </div>
     <div>
-      <input onChange={(e) => setScore(e.target.value)} value={score}  className="score-box"/>
+      <input onChange={(e) => setRange(e.target.value)} value={range}  className="score-box"/>
     </div>
     <div className="create">
       <select>
@@ -227,7 +206,7 @@ const displayData = (e) => {
         className="justifications"
         placeholder="Justifications go here"
         
-        value={justification}
+        value={justifications}
         onChange={(e) => setJustifications(e.target.value)} 
       />
     </div>
@@ -248,39 +227,29 @@ const displayData = (e) => {
             <tr>
               <th className="table-heading-1">1</th>
               <th>
-              <input type="text" name="requirement" value={requirements} onChange={(e) => setRequirements(e.target.value)}/>
+              <input type="text" name="requirement" value={requirement} onChange={(e) => setRequirement(e.target.value)}/>
               </th>
             </tr>
             <tr>
               <th className="table-heading-2">2</th>
               <th>
-              <input type="text" name="requirement" value={requirements} onChange={(e) => setRequirements(e.target.value)}/>
+              <input type="text" name="requirement" value={requirement} onChange={(e) => setRequirement(e.target.value)}/>
               </th>
             </tr>
             <tr>
               <th className="table-heading-3">3</th>
               <th>
-                <input type="text" name="requirement" value={requirements} onChange={(e) => setRequirements(e.target.value)}/>
+                <input type="text" name="requirement" value={requirement} onChange={(e) => setRequirement(e.target.value)}/>
               </th>
             </tr>
-            <tr>
-              <th className="table-heading-4">4</th>
-              <th>
-                <input type="text" name="requirement" value={requirements} onChange={(e) => setRequirements(e.target.value)}/>
-              </th>
-            </tr>
-            <tr>
-              <th className="table-heading-5">5</th>
-              <th>
-                <input type="text" name="requirement" value={requirements} onChange={(e) => setRequirements(e.target.value)}/>
-              </th>
-            </tr>
+           
+            
           </tbody>
         </table>
       </section>
     </div>
     <div>
-    <input onChange={(e) => setScore(e.target.value)} value={score}  className="score-box"/>
+    <input onChange={(e) => setRange(e.target.value)} value={range}  className="score-box"/>
     </div>
     <div className="create">
       <select>
@@ -296,80 +265,14 @@ const displayData = (e) => {
         className="justifications"
         placeholder="Justifications go here"
         
-        value={justification}
+        value={justifications}
         onChange={(e) => setJustifications(e.target.value)}
       />
     </div>
   </div>
-  <div className="first-row-heading">
-    <h2>Team Collaboration</h2>
-  </div>
-  <div className="first-row">
-    <div className="first-row-text">
-      <p className="score-question">
-        What score best describes your situation?
-      </p>
-    </div>
-    <section>
-      <table>
-        <tbody>
-          <tr>
-            <th className="table-heading-1">1</th>
-            <th>
-              <input type="text" name="requirement" value={requirements} onChange={(e) => setRequirements(e.target.value)}/>
-            </th>
-          </tr>
-          <tr>
-            <th className="table-heading-2">2</th>
-            <th>
-              <input type="text" name="requirement" value={requirements} onChange={(e) => setRequirements(e.target.value)}/>
-            </th>
-          </tr>
-          <tr>
-            <th className="table-heading-3">3</th>
-            <th>
-              <input type="text" name="requirement" value={requirements} onChange={(e) => setRequirements(e.target.value)}/>
-            </th>
-          </tr>
-          <tr>
-            <th className="table-heading-4">4</th>
-            <th>
-              <input type="text" name="requirement" value={requirements} onChange={(e) => setRequirements(e.target.value)}/>
-            </th>
-          </tr>
-          <tr>
-            <th className="table-heading-5">5</th>
-            <th>
-              <input type="text" name="requirement" value={requirements} onChange={(e) => setRequirements(e.target.value)}/>
-            </th>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-    <div>
-      <p onChange={(e) => setScore(e.target.value)} value={score}  className="score-box-3">1</p>
-    </div>
-    <div className="create">
-      <select>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
-    </div>
-    <div>
-      <textarea
-       className="justifications"
-        placeholder="Justifications go here"
-        value={justification}
-        onChange={(e) => setJustifications(e.target.value)}
-      />
-    </div>
-  </div>
-  <div className="first-row-heading">
-    <h2>Leadership</h2>
-  </div>
+  
+  
+  
   
   <div className="buttons">
     
@@ -377,7 +280,7 @@ const displayData = (e) => {
       Save Scorecard
     </button>
     <button onClick={ handleCancel } className="edit-button">Cancel</button>
-    <button onClick={ displayData }>Import scorecard data</button>
+    <button className="save-results-button" onClick={ displayData }>Import scorecard data</button>
   </div>
 </>
   )};

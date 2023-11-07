@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 
 function CriteriaPage() {
 
-  
+  const navigate = useNavigate();
 
   const [main, setMain] = useState('');
   const [second, setSecond] = useState('');
@@ -45,13 +45,11 @@ function CriteriaPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('main:', main);
-    console.log('second:', second);
     console.log('range:', range);
     console.log('requirment:', requirement);
     console.log('level1:', level1);
     console.log('level2:', level2);
     console.log('level3:', level3);
-    console.log('criteria_id', criteria_id);
     console.log('FLname:', FLname);
     console.log('date:', date);
     console.log('justifications:', justifications)
@@ -59,7 +57,6 @@ function CriteriaPage() {
     // {} to server
     const data = {
       main_criteria: main,
-      secondary_criteria: second,
       scoring_range: range,
       requirements: requirement,
       level1: level1,
@@ -93,7 +90,7 @@ function CriteriaPage() {
         
       });
   };
-const navigate = useNavigate();
+
   const handleNavigate = () => {
     navigate('/scorecard')
   }
@@ -113,13 +110,6 @@ const navigate = useNavigate();
               placeholder='Enter Main Criteria'
               value={main}
               onChange={(e) => setMain(e.target.value)}
-            />
-            <Header2 />
-            <input
-              type='text'
-              placeholder='Enter Secondary Criteria'
-              value={second}
-              onChange={(e) => setSecond(e.target.value)}
             />
             <Header3 />
             <input
@@ -152,12 +142,6 @@ const navigate = useNavigate();
               placeholder='level 3'
               value={level3}
               onChange={(e) => setLevel3(e.target.value)}
-            />
-            <input
-              type='number'
-              placeholder='criteria_id'
-              value={criteria_id}
-              onChange={(e) => setCriteria_id(e.target.value)}
             />
             <input
               type='text'
