@@ -59,6 +59,15 @@ app.get('/', (req, res) => {
 //     return res.status(500).json({ error: "Internal server error", details: error.message });
 //   }
 // });
+app.get('/scorecard_definition', (req, res) => {
+  const sql = "SELECT * FROM scorecard_definition"
+  db.query(sql, (err, data)=> {
+    if(err) return res.json(err)
+    return res.json(data)
+  })
+})
+
+
 
 //create get/create route for criteria
 app.get('/criteria', (req, res) => {

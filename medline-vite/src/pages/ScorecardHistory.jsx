@@ -17,7 +17,7 @@ const ScorecardHistory = () => {
         <p className="range">Scoring Range: {item.scoring_range}</p>
         <p className="level1">Requirement One: {item.level1}</p>
         <p className="level2">Requirement Two: {item.level2}</p>
-        <p className="level3">Requirement Three: {item.levl3}</p>
+        <p className="level3">Requirement Three: {item.level3}</p>
         <p>{item.justifications}</p>
         <p className="criteria-id">Scorecard Criteria ID: {item.criteria_id}</p>
         
