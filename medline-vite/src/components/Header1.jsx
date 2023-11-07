@@ -5,7 +5,7 @@ function Header1() {
   return (
     <>
       <header className="header">
-        <h2 className="header-text">Enter Criteria</h2>
+        <h2 className="header-text">Scoring Topic</h2>
         </header>
     </>
   )
