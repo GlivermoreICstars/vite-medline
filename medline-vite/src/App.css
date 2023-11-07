@@ -25,7 +25,7 @@
  place-items: center;
 }
 
-.compile-btn {
+/* .compile-btn {
   background-color: red;
   border: none;
   cursor: pointer;
@@ -36,8 +36,8 @@
   color: white;
   width: 100px;
   font-size: 16px;
-}
-.compile-btn:hover {
+} */
+/* .compile-btn:hover {
   box-shadow: 1px 1px 10px rgb(86, 86, 86);
 }
 .cancel-btn {
@@ -53,7 +53,7 @@
 }
 .cancel-btn:hover {
   box-shadow: 1px 1px 10px rgb(86, 86, 86);
-}
+} */
 
 .active {
   display: flex;
@@ -176,7 +176,7 @@ input:focus, textarea {
   background-color: rgb(105, 240, 249);
 }
 
-.buttons {
+/* .buttons {
   display: flex;
   justify-content: flex-end;
 }
@@ -203,7 +203,7 @@ box-shadow: 1px 1px 7px rgb(146, 146, 146);
 }
 .save-results-button:hover {
   box-shadow: 1px 1px 7px rgb(146, 146, 146);
-}
+} */
 
 .score-question {
   padding-left: 20px;
@@ -289,7 +289,7 @@ input {
 }
 
 button {
-  margin-top: 10px;
+  margin: 10px;
   background-color: #007BFF;
   color: white;
   border: none;
