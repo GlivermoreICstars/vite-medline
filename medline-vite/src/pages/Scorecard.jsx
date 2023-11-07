@@ -55,7 +55,6 @@ const handleSave =(e) => {
     // {} to server
     const data = {
       main_criteria: main,
-      secondary_criteria: second,
       scoring_range: range,
       requirements: requirement,
       level1: level1,
@@ -193,13 +192,6 @@ const displayData = (e) => {
       <input onChange={(e) => setRange(e.target.value)} value={range}  className="score-box"/>
     </div>
     <div className="create">
-      <select>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
     </div>
     <div>
       <textarea
@@ -252,13 +244,6 @@ const displayData = (e) => {
     <input onChange={(e) => setRange(e.target.value)} value={range}  className="score-box"/>
     </div>
     <div className="create">
-      <select>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
     </div>
     <div>
       <textarea
