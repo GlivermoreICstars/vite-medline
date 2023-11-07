@@ -153,7 +153,7 @@ const displayData = (e) => {
     </header>
   </div>
   <div className="first-row-heading">
-    <h2>Time Management</h2>
+    <h2></h2>
   </div>
   <div className="first-row">
     <div className="first-row-text">
@@ -212,7 +212,7 @@ const displayData = (e) => {
     </div>
   </div>
   <div className="first-row-heading">
-    <h2>Cost Management</h2>
+    <h2></h2>
   </div>
   <div className="first-row">
     <div className="first-row-text">
