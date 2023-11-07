@@ -7,44 +7,65 @@ function Scorecard() {
   const scorecardData = useContext(DataBaseContext)
   const FLname1 = [scorecardData]
 
-  console.log("scorecardData", scorecardData[3].FLname)
+  
   
 
-const [criteria, setCriteria] = useState('');
-const [FLname, setFLname] = useState('');
-const [employid, setEmployid] = useState('');
-const [date, setDate] = useState('');
-const [requirements, setRequirements] = useState('');
-const [score, setScore] = useState('');
-const [justification, setJustifications] = useState('');
+  const [main, setMain] = useState('');
+  const [second, setSecond] = useState('');
+  const [range, setRange] = useState('');
+  const [requirement, setRequirement] = useState('');
+  const [level1, setLevel1] = useState('')
+  const [level2, setLevel2] = useState('')
+  const [level3, setLevel3] = useState('')
+  const [criteria_id, setCriteria_id] = useState('')
+  const [FLname, setFLname] = useState('')
+  const [date, setDate] = useState('')
+  const [justifications, setJustifications] = useState('')
 
 
 const handleCancel = () => {
-  setCriteria('');
-  setFLname('');
-  setEmployid('');
-  setDate('');
-  setRequirements('');
-  setScore('');
-  setJustifications('');
+  setMain('');
+  setSecond('');
+  setRange('');
+  setRequirement('');
+  setLevel1('')
+  setLevel2('')
+  setLevel3('')
+  setCriteria_id('')
+  setFLname('')
+  setDate('')
+  setJustifications('')
 };
 
 
 const handleSave =(e) => {
   e.preventDefault();
+    console.log('main:', main);
+    console.log('second:', second);
+    console.log('range:', range);
+    console.log('requirment:', requirement);
+    console.log('level1:', level1);
+    console.log('level2:', level2);
+    console.log('level3:', level3);
+    console.log('criteria_id', criteria_id);
+    console.log('FLname:', FLname);
+    console.log('date:', date);
+    console.log('justifications:', justifications)
 
-  const data = {
-    criteria: criteria,
-    FLname: FLname,
-    employID: employid,
-    date: date,
-    requirements: requirements,
-    score: score,
-    FLname: FLname,
-    date: date,
-    justifications: justifications,
-  };
-
+    // {} to server
+    const data = {
+      main_criteria: main,
+      secondary_criteria: second,
+      scoring_range: range,
+      requirements: requirement,
+      level1: level1,
+      level2: level2,
+      level3: level3,
+      criteria_id: criteria_id,
+      FLname: FLname,
+      date: date,
+      justifications: justifications,
+    };
 
 fetch('http://localhost:4000/criteria', {
       method: 'POST',
@@ -55,11 +76,11 @@ fetch('http://localhost:4000/criteria', {
     })
       .then((response) => response.json())
       .then((responseData) => {
-        console.log('Scorecard data posted:', responseData);
+        console.log('Scorecard data posted to data base:', responseData);
         
       })
       .catch((error) => {
-        console.error('Error posting scorecard data:', error);
+        console.error('Error posting scorecard data to database:', error);
         
       });
   };
@@ -106,8 +127,7 @@ const displayData = (e) => {
           type="text"
           name="FLname"
           placeholder="Enter full name"
-          value={scorecardData[3].FLname || FLname1} 
-          onChange={(e) => setFLname(e.target.value)}
+         
   
       />
     </label>

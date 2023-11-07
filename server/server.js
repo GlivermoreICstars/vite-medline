@@ -31,34 +31,34 @@ app.get('/', (req, res) => {
 })
 
 // create request for scorecard
-app.get('/scorecard', (req, res) => {
-  const sql = "SELECT * FROM scorecard"
-  db.query(sql, (err, data) => {
-    if(err) return res.json(err);
-    return res.json(data);
-  })
-})
+// app.get('/scorecard', (req, res) => {
+//   const sql = "SELECT * FROM scorecard"
+//   db.query(sql, (err, data) => {
+//     if(err) return res.json(err);
+//     return res.json(data);
+//   })
+// })
 
-//post for scorecard
+// //post for scorecard
 
-app.post("/scorecard", (req, res) => {
-  try {
-    const sql = "INSERT INTO scorecard (`criteria`, `FLname`, `employID`, `date`, `requirements`, `score`, `justifications`) VALUES (?, ?, ?, ?, ?, ?, ?)";
-    const values = [req.body.criteria, req.body.FLname, req.body.employID, req.body.date, req.body.requirements, req.body.score, req.body.justifications];
+// app.post("/scorecard", (req, res) => {
+//   try {
+//     const sql = "INSERT INTO scorecard (`criteria`, `FLname`, `employID`, `date`, `requirements`, `score`, `justifications`) VALUES (?, ?, ?, ?, ?, ?, ?)";
+//     const values = [req.body.criteria, req.body.FLname, req.body.employID, req.body.date, req.body.requirements, req.body.score, req.body.justifications];
 
-    db.query(sql, values, (err, data) => {
-      if (err) {
-        console.error("Error in the database query:", err);
-        return res.status(500).json({ error: "Internal server error", details: err.message });
-      }
+//     db.query(sql, values, (err, data) => {
+//       if (err) {
+//         console.error("Error in the database query:", err);
+//         return res.status(500).json({ error: "Internal server error", details: err.message });
+//       }
 
-      return res.status(200).json({ message: "Scorecard made" });
-    });
-  } catch (error) {
-    console.error("Error in POST operation:", error);
-    return res.status(500).json({ error: "Internal server error", details: error.message });
-  }
-});
+//       return res.status(200).json({ message: "Scorecard made" });
+//     });
+//   } catch (error) {
+//     console.error("Error in POST operation:", error);
+//     return res.status(500).json({ error: "Internal server error", details: error.message });
+//   }
+// });
 
 //create get/create route for criteria
 app.get('/criteria', (req, res) => {

@@ -36,9 +36,9 @@ function CriteriaPage() {
     setLevel2('')
     setLevel3('')
     setCriteria_id('')
-    FLname('')
-    date('')
-    justifications('')
+    setFLname('')
+    setDate('')
+    setJustifications('')
   
   };
 
@@ -73,7 +73,7 @@ function CriteriaPage() {
 
     };
 
-    console.log(data);
+   
 
     // sendin post req to server
     fetch('http://localhost:4000/criteria', {
