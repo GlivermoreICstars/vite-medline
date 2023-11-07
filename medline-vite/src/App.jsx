@@ -32,7 +32,6 @@ useEffect(() => {
           <Routes>
           <Route index element={<Home />}/>
           <Route path="/Home" element={<Home />}/>
-          <Route path='/ScoreCardLibrary' element={<ScoreCardLibrary />}/>
           <Route path='/ScorecardHistory' element={<ScorecardHistory />}/>
           <Route path="/Criteria" element={<CriteriaPage />}/>
           <Route path="/Scorecard" element={<Scorecard />}/>

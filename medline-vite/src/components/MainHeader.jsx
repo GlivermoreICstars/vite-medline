@@ -6,7 +6,7 @@ function MainHeader() {
   <div className="navbar">
     <ul className="active">
       <Link to='/'>Home</Link>
-      <Link to='/ScorecardLibrary'>Template Library</Link>
+      <Link to='/ScorecardHistory'>Template History</Link>
       <Link to='/criteria'>Criteria Page</Link>
     </ul>
   </div>
