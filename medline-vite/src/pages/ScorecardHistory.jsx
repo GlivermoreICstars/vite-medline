@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
 import { DataBaseContext } from '../App';
-import axios from 'axios'
 import CriteriaFinder from "../components/CriteriaFinder";
 
 
