@@ -4,27 +4,39 @@ import { DataBaseContext } from '../App';
 const ScorecardHistory = () => {
   const data = useContext(DataBaseContext);
 
+  return (
+    <div className="container">
+      <h1 className="history-heading">Scorecard History</h1>
+      <table>
+        <thead>
+          <tr>
+            <th className="main-criteria">Main Criteria</th>
+            <th>Name</th>
+            <th>Date</th>
+            <th className="range">Scoring Range</th>
+            <th className="level1">Requirement One</th>
+            <th className="level2">Requirement Two</th>
+            <th className="level3">Requirement Three</th>
+            <th>Justifications</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((item) => (
+            <tr key={item.criteria_id}>
+              <td>{item.main_criteria}</td>
+              <td>{item.FLname}</td>
+              <td>{item.date}</td>
+              <td>{item.scoring_range}</td>
+              <td>{item.level1}</td>
+              <td>{item.level2}</td>
+              <td>{item.level3}</td>
+              <td>{item.justifications}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
 
-  return(
-  <div>
-  <h1>Scorecard History</h1>
-  <ul>
-    {data.map((item) => (
-      <div className="container" key={item.criteria_id}>
-        <h2 className="main-criteria">Main Criteria: {item.main_criteria}</h2>
-        <p>Name: {item.FLname}</p>
-        <p>Date: {item.date}</p>
-        <p className="range">Scoring Range: {item.scoring_range}</p>
-        <p className="level1">Requirement One: {item.level1}</p>
-        <p className="level2">Requirement Two: {item.level2}</p>
-        <p className="level3">Requirement Three: {item.level3}</p>
-        <p>{item.justifications}</p>
-        <p className="criteria-id">Scorecard Criteria ID: {item.criteria_id}</p>
-        
-      </div>
-    ))}
-  </ul>
-</div>
-);
-    }
 export default ScorecardHistory;

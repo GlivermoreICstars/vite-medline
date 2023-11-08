@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Header from '../components/Header';
-import Header2 from '../components/Header2';
+import Header5 from '../components/Header5';
 import Header3 from '../components/Header3';
 import medline from '../images/medline.jpg';
 import Header1 from '../components/Header1';
@@ -12,8 +12,10 @@ function CriteriaPage() {
 
   const navigate = useNavigate();
 
+  const [compileButtonText, setCompileButtonText] = useState('COMPILE');
+  const [cancelButtonText, setCancelButtonText] = useState('CANCEL');
+
   const [main, setMain] = useState('');
-  const [second, setSecond] = useState('');
   const [range, setRange] = useState('');
   const [requirement, setRequirement] = useState('');
   const [level1, setLevel1] = useState('')
@@ -29,7 +31,6 @@ function CriteriaPage() {
     e.preventDefault();
 
     setMain('');
-    setSecond('');
     setRange('');
     setRequirement('');
     setLevel1('')
@@ -39,10 +40,14 @@ function CriteriaPage() {
     setFLname('')
     setDate('')
     setJustifications('')
-  
+
+    setCompileButtonText('COMPILE');
+    setCancelButtonText('CANCELLED');
   };
 
   const handleSubmit = (e) => {
+
+    
     e.preventDefault();
     console.log('main:', main);
     console.log('range:', range);
@@ -52,8 +57,10 @@ function CriteriaPage() {
     console.log('level3:', level3);
     console.log('FLname:', FLname);
     console.log('date:', date);
-    console.log('justifications:', justifications)
-
+    console.log('justifications:', justifications);
+    console.log('criteria_id', criteria_id);
+    
+    setCompileButtonText('SCORECARD COMPILED');
     // {} to server
     const data = {
       main_criteria: main,
@@ -67,7 +74,7 @@ function CriteriaPage() {
       date: date,
       justifications: justifications,
 
-
+      
     };
 
    
@@ -130,22 +137,29 @@ function CriteriaPage() {
             />
             <input
               type='text'
-              placeholder='level one'
+              placeholder='Enter first scoring requirement'
               value={level1}
               onChange={(e) => setLevel1(e.target.value)}
             />
             <input
               type='text'
-              placeholder='level 2'
+              placeholder='Enter second scoring requirement'
               value={level2}
               onChange={(e) => setLevel2(e.target.value)}
             />
             <input
               type='text'
-              placeholder='level 3'
+              placeholder='Enter third scoring requirement'
               value={level3}
               onChange={(e) => setLevel3(e.target.value)}
             />
+            <input
+              type='text'
+              placeholder='Enter any justifications for how you scored'
+              value={justifications}
+              onChange={(e) => setJustifications(e.target.value)}
+            />
+            <Header5 />
             <input
               type='text'
               placeholder='Enter name'
@@ -158,16 +172,11 @@ function CriteriaPage() {
               value={date}
               onChange={(e) => setDate(e.target.value)}
             />
-            <input
-              type='text'
-              placeholder='justifications'
-              value={justifications}
-              onChange={(e) => setJustifications(e.target.value)}
-            />
+            
             
             <div>
-              <button onClick={handleSubmit} className='compile-btn' type="submit">COMPILE</button>
-              <button  onClick={handleCancel} className='cancel-btn'>CANCEL</button>
+              <button onClick={handleSubmit} className='compile-btn' type="submit">{compileButtonText}</button>
+              <button  onClick={handleCancel} className='cancel-btn'>{cancelButtonText}</button>
               <button className='compile-btn' onClick={handleNavigate}>Go to scorecard</button>
             </div>
           </form>

@@ -11,9 +11,10 @@ function Scorecard() {
   
 
   const [main, setMain] = useState('');
-  const [second, setSecond] = useState('');
   const [range, setRange] = useState('');
-  const [requirement, setRequirement] = useState('');
+  const [requirement1, setRequirement1] = useState('');
+  const [requirement2, setRequirement2] = useState('');
+  const [requirement3, setRequirement3] = useState('');
   const [level1, setLevel1] = useState('')
   const [level2, setLevel2] = useState('')
   const [level3, setLevel3] = useState('')
@@ -25,9 +26,9 @@ function Scorecard() {
 
 const handleCancel = () => {
   setMain('');
-  setSecond('');
   setRange('');
   setRequirement('');
+  setRequirement1('')
   setLevel1('')
   setLevel2('')
   setLevel3('')
@@ -38,25 +39,27 @@ const handleCancel = () => {
 };
 
 
-const handleSave =(e) => {
-  e.preventDefault();
+
+  const handleSave = (e) => {
+    e.preventDefault();
     console.log('main:', main);
-    console.log('second:', second);
     console.log('range:', range);
-    console.log('requirment:', requirement);
+    console.log('requirement1:', requirement1); 
+    console.log('requirement2:', requirement2);
+    console.log('requirement3:', requirement3); 
     console.log('level1:', level1);
     console.log('level2:', level2);
     console.log('level3:', level3);
     console.log('criteria_id', criteria_id);
     console.log('FLname:', FLname);
     console.log('date:', date);
-    console.log('justifications:', justifications)
-
+    console.log('justifications:', justifications);
+  
     // {} to server
     const data = {
       main_criteria: main,
       scoring_range: range,
-      requirements: requirement,
+      requirements: [requirement1, requirement2, requirement3], 
       level1: level1,
       level2: level2,
       level3: level3,
@@ -65,8 +68,8 @@ const handleSave =(e) => {
       date: date,
       justifications: justifications,
     };
-
-fetch('http://localhost:4000/criteria', {
+  
+    fetch('http://localhost:4000/criteria', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -75,18 +78,16 @@ fetch('http://localhost:4000/criteria', {
     })
       .then((response) => response.json())
       .then((responseData) => {
-        console.log('Scorecard data posted to data base:', responseData);
-        
+        console.log('Scorecard data posted to database:', responseData);
       })
       .catch((error) => {
         console.error('Error posting scorecard data to database:', error);
-        
       });
   };
-
+//this one gets data succesfully, but doesn't display for some reason
 const displayData = (e) => {
   fetch('http://localhost:4000/criteria', {
-    method: 'GET', // Use the GET method
+    method: 'GET', 
     headers: {
       'Content-Type': 'application/json',
     },
@@ -94,11 +95,11 @@ const displayData = (e) => {
     .then((response) => response.json())
     .then((responseData) => {
       console.log('Scorecard data retrieved:', responseData);
-      // Handle the retrieved data as needed
+      //successful retrieval
     })
     .catch((error) => {
       console.error('Error retrieving scorecard data:', error);
-      // Handle errors as needed
+      //takes care of any errors from db
     });
 }
 
@@ -115,13 +116,11 @@ const displayData = (e) => {
          placeholder="Enter main criteria"
          value={main}
          onChange={(e) => setMain(e.target.value)}
-  
-  
-  
-      />
+         />
     </label>
-   Scoring Candidate
+   
     <label>
+    Scoring Candidate
       <input
           type="text"
           name="FLname"
@@ -167,19 +166,19 @@ const displayData = (e) => {
             <tr>
               <th className="table-heading-1">1</th>
               <th>
-                <input type="text" name="requirement" value={requirement} onChange={(e) => setRequirement(e.target.value)}/>
+                <input type="text" name="requirement" value={requirement1} onChange={(e) => setRequirement1(e.target.value)}/>
               </th>
             </tr>
             <tr>
               <th className="table-heading-2">2</th>
               <th>
-              <input type="text" name="requirement" value={requirement} onChange={(e) => setRequirement(e.target.value)}/>
+              <input type="text" name="requirement" value={requirement2} onChange={(e) => setRequirement2(e.target.value)}/>
               </th>
             </tr>
             <tr>
               <th className="table-heading-3">3</th>
               <th>
-              <input type="text" name="requirement" value={requirement} onChange={(e) => setRequirement(e.target.value)}/>
+              <input type="text" name="requirement" value={requirement3} onChange={(e) => setRequirement3(e.target.value)}/>
               </th>
             </tr>
             
@@ -206,59 +205,6 @@ const displayData = (e) => {
   <div className="first-row-heading">
     <h2></h2>
   </div>
-  <div className="first-row">
-    <div className="first-row-text">
-      <p className="score-question">
-        What score best describes your situation?
-      </p>
-    </div>
-    <div>
-      <section>
-        <table>
-          <tbody>
-            <tr>
-              <th className="table-heading-1">1</th>
-              <th>
-              <input type="text" name="requirement" value={requirement} onChange={(e) => setRequirement(e.target.value)}/>
-              </th>
-            </tr>
-            <tr>
-              <th className="table-heading-2">2</th>
-              <th>
-              <input type="text" name="requirement" value={requirement} onChange={(e) => setRequirement(e.target.value)}/>
-              </th>
-            </tr>
-            <tr>
-              <th className="table-heading-3">3</th>
-              <th>
-                <input type="text" name="requirement" value={requirement} onChange={(e) => setRequirement(e.target.value)}/>
-              </th>
-            </tr>
-           
-            
-          </tbody>
-        </table>
-      </section>
-    </div>
-    <div>
-    <input onChange={(e) => setRange(e.target.value)} value={range}  className="score-box"/>
-    </div>
-    <div className="create">s
-    </div>
-    <div>
-      <textarea
-        className="justifications"
-        placeholder="Justifications go here"
-        
-        value={justifications}
-        onChange={(e) => setJustifications(e.target.value)}
-      />
-    </div>
-  </div>
-  
-  
-  
-  
   <div className="buttons">
     
     <button onClick={ handleSave } className="save-results-button" id="save-btn">
