@@ -146,7 +146,6 @@ const displayData = (e) => {
       <h3>Competency</h3>
       <h3>Level of Process Maturity</h3>
       <h3>Score</h3>
-      <h3>Choose Score</h3>
       <h3>Justification</h3>
     </header>
   </div>

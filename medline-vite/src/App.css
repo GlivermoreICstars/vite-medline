@@ -25,47 +25,28 @@
  place-items: center;
 }
 
-/* .compile-btn {
-  background-color: red;
-  border: none;
-  cursor: pointer;
-  border-radius: 2em;
-  margin-right: 150px;
-  margin-top: 30px;
-  height: 40px;
-  color: white;
-  width: 100px;
-  font-size: 16px;
-} */
-/* .compile-btn:hover {
-  box-shadow: 1px 1px 10px rgb(86, 86, 86);
-}
-.cancel-btn {
-  background-color: rgb(146, 144, 144);
-  border: none;
-  cursor: pointer;
-  border-radius: 2em;
-  height: 40px;
-  margin-top: 30px;
-  color: white;
-  width: 100px;
-  font-size: 16px;
-}
-.cancel-btn:hover {
-  box-shadow: 1px 1px 10px rgb(86, 86, 86);
-} */
 
 .active {
   display: flex;
   justify-content: space-between;
   list-style: none;
   background-color:  #174c9b;
-  padding-right: 60px;
   padding: 20px;
   font-family: 'Montserrat';
   font-size:18px;
+  padding-left: 20px;
+  
  
 }
+
+.home-text {
+  margin-left: 130px;
+}
+
+.criteria-text {
+  margin-right: 130px;
+}
+
 a {
   color: white;
   text-decoration: none;
@@ -120,29 +101,6 @@ input:focus, textarea {
   color: lightblue;
 }
 
-.score-box-2 {
-  margin-top: 15px;
-  height: 100px;
-  width: 100px;
-  font-size: 50px;
-  color: rgb(86, 48, 153);
-}
-
-.score-box-3 {
-  margin-top: 15px;
-  height: 100px;
-  width: 100px;
-  font-size: 50px;
-  color: pink;
-}
-
-.score-box-4 {
-  margin-top: 1px;
-  height: 100px;
-  width: 100px;
-  font-size: 50px;
-  color: rgb(171, 135, 171);
-}
 
 .justifications {
   border: none;
@@ -175,35 +133,6 @@ input:focus, textarea {
 .table-heading-5 {
   background-color: rgb(105, 240, 249);
 }
-
-/* .buttons {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.edit-button {
-  padding: 15px;
-  margin-right: 50px;
-  background: greenyellow;
-  border-radius: 3em;
-  font-size: 16px;
-  border: none;
-}
-.edit-button:hover {
-box-shadow: 1px 1px 7px rgb(146, 146, 146);
-}
-
-.save-results-button {
-  padding: 15px;
-  margin-right: 150px;
-  background: red;
-  border-radius: 3em;
-  font-size: 16px;
-  border: none;
-}
-.save-results-button:hover {
-  box-shadow: 1px 1px 7px rgb(146, 146, 146);
-} */
 
 .score-question {
   padding-left: 20px;
@@ -290,7 +219,7 @@ input {
   
 }
 ::placeholder {
-  color: rgb(104, 100, 184)
+  color: rgb(91, 89, 134)
 }
 
 .score-input {
@@ -311,7 +240,7 @@ button {
 
 button:hover {
   color: #ddd;
-  background-color: #0056b3;
+  background-color: rgb(59, 91, 234);
   box-shadow: 1px 1px 10px grey;
   font-style: italic;
 }

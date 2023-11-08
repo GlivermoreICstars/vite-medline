@@ -5,9 +5,9 @@ function MainHeader() {
   return (
   <div className="navbar">
     <ul className="active">
-      <Link to='/'>Home</Link>
+      <Link className="home-text" to='/'>Home</Link>
       <Link to='/ScorecardHistory'>Template History</Link>
-      <Link to='/criteria'>Criteria Page</Link>
+      <Link className="criteria-text" to='/criteria'>Criteria Page</Link>
     </ul>
   </div>
 )};
