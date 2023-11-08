@@ -1,14 +1,14 @@
 import React from "react";
 
 
-function Header4() {
+function Header6() {
   return (
     <>
       <header className="header">
-        <h3 className="header-text">Scoring Criteria</h3>
+        <h3 className="header-text">Scoring Requirements</h3>
       </header>
     </>
   )
 }
 
-export default Header4
+export default Header6

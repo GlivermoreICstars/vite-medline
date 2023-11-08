@@ -281,11 +281,20 @@ label {
 }
 
 input {
-  width: 100%;
+  width: 90%;
+  height: 25px;
   padding: 5px;
   margin-top: 5px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  
+}
+::placeholder {
+  color: rgb(104, 100, 184)
+}
+
+.score-input {
+  width: 180px;
 }
 
 button {
@@ -301,7 +310,10 @@ button {
 }
 
 button:hover {
+  color: #ddd;
   background-color: #0056b3;
+  box-shadow: 1px 1px 10px grey;
+  font-style: italic;
 }
 
 table {

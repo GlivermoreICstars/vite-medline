@@ -5,7 +5,7 @@ function Header5() {
   return (
     <>
       <header className="header">
-        <h2 className="header-text">Name and Date</h2>
+        <h3 className="header-text">Name & Date <i class="fa-solid fa-file-signature"></i></h3>
       </header>
     </>
   )

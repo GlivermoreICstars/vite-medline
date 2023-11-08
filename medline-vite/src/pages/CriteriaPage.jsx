@@ -5,6 +5,8 @@ import Header3 from '../components/Header3';
 import medline from '../images/medline.jpg';
 import Header1 from '../components/Header1';
 import Header4 from '../components/Header4';
+import Header6 from '../components/Header6';
+import Header7 from '../components/Header7';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -120,6 +122,7 @@ function CriteriaPage() {
             />
             <Header3 />
             <input
+            className='score-input'
               type='number' // Assuming scoring range should be a number
               placeholder='Choose Scoring Range'
               value={range}
@@ -131,10 +134,11 @@ function CriteriaPage() {
             
             <input
               type='text'
-              placeholder='Enter Requirements'
+              placeholder='Enter Requirement'
               value={requirement}
               onChange={(e) => setRequirement(e.target.value)}
             />
+            <Header6 />
             <input
               type='text'
               placeholder='Enter first scoring requirement'
@@ -153,9 +157,10 @@ function CriteriaPage() {
               value={level3}
               onChange={(e) => setLevel3(e.target.value)}
             />
+          <Header7 />
             <input
               type='text'
-              placeholder='Enter any justifications for how you scored'
+              placeholder='Enter any justifications for score range'
               value={justifications}
               onChange={(e) => setJustifications(e.target.value)}
             />
