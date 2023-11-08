@@ -41,8 +41,8 @@ const ScorecardHistory = () => {
             <th className="level1">Requirement One</th>
             <th className="level2">Requirement Two</th>
             <th className="level3">Requirement Three</th>
-            
             <th>Justifications</th>
+            <th>Delete Scorecard</th>
           </tr>
         </thead>
         <tbody>
