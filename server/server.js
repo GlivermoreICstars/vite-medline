@@ -9,7 +9,7 @@ app.use(cors({origin:"http://localhost:5173"}));
 
 app.use(bodyParser.json());
 
-// Create a MySQL database connection
+// Created a database connection finally
 const db = mysql.createConnection({
   host: 'localhost', // Change this to the MySQL server's host
   user: 'root',       // Change this to the MySQL username
@@ -30,35 +30,9 @@ app.get('/', (req, res) => {
   return res.json('Connected to the database finally')
 })
 
-// create request for scorecard
-// app.get('/scorecard', (req, res) => {
-//   const sql = "SELECT * FROM scorecard"
-//   db.query(sql, (err, data) => {
-//     if(err) return res.json(err);
-//     return res.json(data);
-//   })
-// })
 
-// //post for scorecard
 
-// app.post("/scorecard", (req, res) => {
-//   try {
-//     const sql = "INSERT INTO scorecard (`criteria`, `FLname`, `employID`, `date`, `requirements`, `score`, `justifications`) VALUES (?, ?, ?, ?, ?, ?, ?)";
-//     const values = [req.body.criteria, req.body.FLname, req.body.employID, req.body.date, req.body.requirements, req.body.score, req.body.justifications];
-
-//     db.query(sql, values, (err, data) => {
-//       if (err) {
-//         console.error("Error in the database query:", err);
-//         return res.status(500).json({ error: "Internal server error", details: err.message });
-//       }
-
-//       return res.status(200).json({ message: "Scorecard made" });
-//     });
-//   } catch (error) {
-//     console.error("Error in POST operation:", error);
-//     return res.status(500).json({ error: "Internal server error", details: error.message });
-//   }
-// });
+//request to get scorecard definition table from db but not using
 app.get('/scorecard_definition', (req, res) => {
   const sql = "SELECT * FROM scorecard_definition"
   db.query(sql, (err, data)=> {
@@ -99,6 +73,23 @@ app.post("/criteria", (req, res) => {
   }
 });
 
+//attempting delete request to criteria
+app.delete('/criteria/:id', (req, res) => {
+  const criteriaId = req.params.id;
+
+  const sql = "DELETE FROM criteria WHERE criteria_id = ?";
+  
+  db.query(sql, [criteriaId], (err, result) => {
+    if (err) {
+      console.error('Error deleting criteria:', err);
+      return res.status(500).json({ error: 'Failed to delete criteria' });
+    } else {
+      console.log('Criteria deleted successfully');
+      return res.status(200).json({ message: 'Criteria deleted successfully' });
+    }
+  });
+});
+
 
 
 app.get('/scorecard', (req, res) => {
@@ -110,7 +101,7 @@ app.get('/scorecard', (req, res) => {
 })
 
 
-
+//long ass get request that I ended up not needed smh
 app.post("/scorecard", (req, res) => {
   console.log('Received POST request for criteria:', req.body);
   try {
@@ -130,22 +121,7 @@ app.post("/scorecard", (req, res) => {
     return res.status(500).json({ error: "Internal server error", details: error.message });
   }
 });
-//Update route for criteria
-// app.put('/criteria', (req, res) => {
-//   const id = req.body.id;
-//   const main = req.body.main_criteria;
 
-//   db.query("UPDATE SET criteria main_criteria = ? WHERE id = ?", [main, id], (err, result) => {
-//     if(err) {
-//       console.log(err)
-//     } else {
-//       res.send(result);
-//     }
-//   })
-// })
-
-//delete route for criteria
-// app.delete()
 
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);

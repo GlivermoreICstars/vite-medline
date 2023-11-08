@@ -1,8 +1,32 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { DataBaseContext } from '../App';
+import axios from 'axios'
+import CriteriaFinder from "../components/CriteriaFinder";
+
 
 const ScorecardHistory = () => {
   const data = useContext(DataBaseContext);
+  const [deletedId, setDeletedId] = useState(null);
+  const [rowData, setRowData] = useState(data);
+
+  
+  
+  useEffect(() => {
+    if (deletedId) {
+      setRowData(rowData.filter(item => item.criteria_id !== deletedId));
+    }
+  }, [deletedId, rowData]);
+
+  // this should delete rows
+  const handleDelete = async (id) => {
+    try {
+      const response = await CriteriaFinder.delete(`/${id}`);
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
 
   return (
     <div className="container">
@@ -31,7 +55,13 @@ const ScorecardHistory = () => {
               <td>{item.level2}</td>
               <td>{item.level3}</td>
               <td>{item.justifications}</td>
+              <td>
+              <button onClick={() => handleDelete(item.criteria_id)}>
+  Delete
+</button>
+              </td>
             </tr>
+            
           ))}
         </tbody>
       </table>
