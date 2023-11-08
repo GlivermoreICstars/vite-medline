@@ -36,10 +36,12 @@ const ScorecardHistory = () => {
             <th className="main-criteria">Main Criteria</th>
             <th>Name</th>
             <th>Date</th>
+            <th className='requirement'>Requirement</th>
             <th className="range">Scoring Range</th>
             <th className="level1">Requirement One</th>
             <th className="level2">Requirement Two</th>
             <th className="level3">Requirement Three</th>
+            
             <th>Justifications</th>
           </tr>
         </thead>
@@ -49,6 +51,7 @@ const ScorecardHistory = () => {
               <td>{item.main_criteria}</td>
               <td>{item.FLname}</td>
               <td>{item.date}</td>
+              <td>{item.requirements}</td>
               <td>{item.scoring_range}</td>
               <td>{item.level1}</td>
               <td>{item.level2}</td>
