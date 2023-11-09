@@ -27,7 +27,6 @@ function Scorecard() {
 const handleCancel = () => {
   setMain('');
   setRange('');
-  setRequirement('');
   setRequirement1('')
   setLevel1('')
   setLevel2('')
@@ -78,7 +77,7 @@ const handleCancel = () => {
     })
       .then((response) => response.json())
       .then((responseData) => {
-        console.log('Scorecard data posted to database:', responseData);
+        console.log('Scorecard data posted to database:', responseData,scorecardData );
       })
       .catch((error) => {
         console.error('Error posting scorecard data to database:', error);
@@ -210,7 +209,7 @@ const displayData = (e) => {
       Save Scorecard
     </button>
     <button onClick={ handleCancel } className="edit-button">Cancel</button>
-    <button className="save-results-button" onClick={ displayData }>Import scorecard data</button>
+    <button className="save-results-button" onClick={ displayData }>Import Scorecard Data</button>
   </div>
 </>
   )};

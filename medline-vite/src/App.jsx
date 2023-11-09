@@ -3,7 +3,6 @@ import './App.css'
 import Scorecard from './pages/Scorecard'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NoPage from './pages/NoPage';
-import Scorecard2 from './pages/Scorecard2';
 import Home from './pages/Home';
 import CriteriaPage from './pages/CriteriaPage';
 import MainHeader from './components/MainHeader';
@@ -32,7 +31,6 @@ useEffect(() => {
           <Routes>
           <Route index element={<Home />}/>
           <Route path="/Home" element={<Home />}/>
-          <Route path="/Scorecard2" element={<Scorecard2 />}/>
           <Route path='/ScorecardHistory' element={<ScorecardHistory />}/>
           <Route path="/Criteria" element={<CriteriaPage />}/>
           <Route path="/Scorecard" element={<Scorecard />}/>

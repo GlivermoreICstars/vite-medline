@@ -180,9 +180,9 @@ function CriteriaPage() {
             
             
             <div>
-              <button onClick={handleSubmit} className='compile-btn' type="submit">{compileButtonText}<i class="fa-regular fa-floppy-disk"></i></button>
-              <button  onClick={handleCancel} className='cancel-btn'>{cancelButtonText} <i class="fa-solid fa-xmark"></i></button>
-              <button className='compile-btn' onClick={handleNavigate}>Go to scorecard <i class="fa-brands fa-golang"></i></button>
+              <button onClick={handleSubmit} className='compile-btn' type="submit">{compileButtonText}</button>
+              <button  onClick={handleCancel} className='cancel-btn'>{cancelButtonText} </button>
+              <button className='compile-btn' onClick={handleNavigate}>Go to scorecard </button>
             </div>
           </form>
         </div>
